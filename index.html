@@ -167,6 +167,10 @@
             margin-bottom: 0.25rem;
         }
 
+        .sub-stat-value.past-due {
+            color: var(--accent-red);
+        }
+
         .sub-stat-label {
             font-size: 0.9rem;
             color: var(--text-secondary);
@@ -507,7 +511,7 @@
     <div class="header">
         <h1>Business Resolutions Dashboard</h1>
         <h2>Real-time Case Management & Performance Analytics</h2>
-        <div class="last-updated">🔴 LIVE DATA - Monday, January 12, 2026 - 9:54 AM (Las Vegas)</div>
+        <div class="last-updated">🔴 LIVE DATA - Monday, January 13, 2026 - 9:54 AM (Las Vegas)</div>
     </div>
 
     <div class="dashboard-container">
@@ -517,16 +521,16 @@
                 <h3 class="section-title">Team Overview</h3>
                 <div class="overview-stats">
                     <div class="main-stat">
-                        <div class="stat-value" style="background: linear-gradient(45deg, var(--primary-orange), var(--primary-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">390</div>
+                        <div class="stat-value" style="background: linear-gradient(45deg, var(--primary-orange), var(--primary-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">389</div>
                         <div class="stat-label">Total Active Cases</div>
                     </div>
                     <div class="sub-stats">
                         <div class="sub-stat">
-                            <div class="sub-stat-value">0</div>
+                            <div class="sub-stat-value past-due">16</div>
                             <div class="sub-stat-label">Follow-ups Past Due</div>
                         </div>
                         <div class="sub-stat">
-                            <div class="sub-stat-value">160</div>
+                            <div class="sub-stat-value">162</div>
                             <div class="sub-stat-label">Cases over 90d</div>
                         </div>
                         <div class="sub-stat">
@@ -541,11 +545,11 @@
                 <h3 class="section-title">Quick Stats</h3>
                 <div class="quick-stats-grid">
                     <div class="quick-stat">
-                        <div class="quick-stat-value">1</div>
+                        <div class="quick-stat-value">3</div>
                         <div class="quick-stat-label">New This Week</div>
                     </div>
                     <div class="quick-stat">
-                        <div class="quick-stat-value">1</div>
+                        <div class="quick-stat-value">2</div>
                         <div class="quick-stat-label">Resolved This Week</div>
                     </div>
                     <div class="quick-stat">
@@ -553,7 +557,7 @@
                         <div class="quick-stat-label">Avg Age</div>
                     </div>
                     <div class="quick-stat">
-                        <div class="quick-stat-value">0</div>
+                        <div class="quick-stat-value">1</div>
                         <div class="quick-stat-label">Regulatory Dismissals</div>
                     </div>
                 </div>
@@ -565,16 +569,16 @@
             <h3 class="section-title">Today's Priorities</h3>
             <div class="action-content">
                 <div>
-                    <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--accent-green);">✅ Strong Monday Morning</h4>
-                    <ul class="priority-list" style="--bullet-color: var(--accent-green);">
-                        <li>Excellent: 0 past due follow-ups (perfect compliance)</li>
-                        <li>Active: 1 new case and 1 resolved already this week</li>
-                        <li>Monitor: 32 ASAP cases for continued SLA compliance</li>
+                    <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--accent-red);">🚨 Critical Action Items</h4>
+                    <ul class="priority-list" style="--bullet-color: var(--accent-red);">
+                        <li>Address 16 past due follow-ups (overdue from Jan 12)</li>
+                        <li>Complete 86 follow-ups scheduled for today (Jan 13)</li>
+                        <li>Monitor: 21 ASAP cases (SLA waived for Kriscely & Jennifer today)</li>
                     </ul>
                 </div>
                 <div class="action-stats">
                     <div class="action-stat-single">
-                        <div class="action-stat-value" style="color: var(--accent-green);">0</div>
+                        <div class="action-stat-value" style="color: var(--primary-orange);">1</div>
                         <div class="action-stat-label">Approvals & Guidance</div>
                     </div>
                 </div>
@@ -590,8 +594,8 @@
                     <div class="performer-name" style="color: var(--accent-green);">Janeth Moyal - 39</div>
                 </div>
                 <div class="performer-stat" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3);">
-                    <div class="performer-label">⚡ This Week's Leader:</div>
-                    <div class="performer-name" style="color: var(--accent-green);">Thomas Walters - 1 resolve</div>
+                    <div class="performer-label">⚡ This Week's Leaders (4-WAY TIE):</div>
+                    <div class="performer-name" style="color: var(--accent-green);">Stephanie, Chase, Janeth & Connor - 2 each</div>
                 </div>
             </div>
         </div>
@@ -606,11 +610,11 @@
                     <div class="specialist-name">Chase Albers</div>
                     <div class="specialist-stats">
                         <div class="stat-item">
-                            <div class="stat-value">48</div>
+                            <div class="stat-value">46</div>
                             <div class="stat-label">Active Cases</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value">0</div>
+                            <div class="stat-value">1</div>
                             <div class="stat-label">Actionable RLE Task</div>
                         </div>
                     </div>
@@ -620,7 +624,7 @@
                             <div class="stat-label">Open Tickets</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value">8</div>
+                            <div class="stat-value">10</div>
                             <div class="stat-label">Resolves MTD</div>
                         </div>
                     </div>
@@ -631,11 +635,11 @@
                     <div class="specialist-name">Connor McNeill</div>
                     <div class="specialist-stats">
                         <div class="stat-item">
-                            <div class="stat-value">24</div>
+                            <div class="stat-value">23</div>
                             <div class="stat-label">Active Cases</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value">0</div>
+                            <div class="stat-value">1</div>
                             <div class="stat-label">Actionable RLE Task</div>
                         </div>
                     </div>
@@ -645,57 +649,7 @@
                             <div class="stat-label">Open Tickets</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value">9</div>
-                            <div class="stat-label">Resolves MTD</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- James Gutcher -->
-                <div class="specialist-card">
-                    <div class="specialist-name">James Gutcher</div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">41</div>
-                            <div class="stat-label">Active Cases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">9</div>
-                            <div class="stat-label">Actionable RLE Task</div>
-                        </div>
-                    </div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Open Tickets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">9</div>
-                            <div class="stat-label">Resolves MTD</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Janeth Moyal -->
-                <div class="specialist-card">
-                    <div class="specialist-name">Janeth Moyal</div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">46</div>
-                            <div class="stat-label">Active Cases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Actionable RLE Task</div>
-                        </div>
-                    </div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Open Tickets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">3</div>
+                            <div class="stat-value">11</div>
                             <div class="stat-label">Resolves MTD</div>
                         </div>
                     </div>
@@ -750,182 +704,17 @@
                         </div>
                     </div>
                     <div class="asap-section">
-                        <div class="asap-count">🚨 21 ASAP Cases</div>
+                        <div class="asap-count">🚨 2 ASAP Cases (2 Past Due - SLA Waived Today)</div>
                         <div class="asap-tickets">
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/467363', '_blank')">
-                                <div class="ticket-customer">Teresa Costa</div>
-                                <div class="ticket-id">Project #467363</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 21 days since update</div>
+                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/494620', '_blank')">
+                                <div class="ticket-customer">Julieta Nieves</div>
+                                <div class="ticket-id">Project #494620</div>
+                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
                             </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/276562', '_blank')">
-                                <div class="ticket-customer">Maria Vaquero Barrera</div>
-                                <div class="ticket-id">Project #276562</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 14 days since update</div>
-                            </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/404536', '_blank')">
-                                <div class="ticket-customer">Rapale Avlie</div>
-                                <div class="ticket-id">Project #404536</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 14 days since update</div>
-                            </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/414940', '_blank')">
-                                <div class="ticket-customer">Jeanet Guevara</div>
-                                <div class="ticket-id">Project #414940</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 14 days since update</div>
-                            </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/450915', '_blank')">
-                                <div class="ticket-customer">Luis Rodriguez Valentin</div>
-                                <div class="ticket-id">Project #450915</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 14 days since update</div>
-                            </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/454900', '_blank')">
-                                <div class="ticket-customer">Evelyn Orsini</div>
-                                <div class="ticket-id">Project #454900</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 14 days since update</div>
-                            </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/488739', '_blank')">
-                                <div class="ticket-customer">Andres Ortiz</div>
-                                <div class="ticket-id">Project #488739</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 14 days since update</div>
-                            </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/493109', '_blank')">
-                                <div class="ticket-customer">Irma Lozada</div>
-                                <div class="ticket-id">Project #493109</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 14 days since update</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Stephanie Gold -->
-                <div class="specialist-card has-asap">
-                    <div class="specialist-name">Stephanie Gold</div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">51</div>
-                            <div class="stat-label">Active Cases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">1</div>
-                            <div class="stat-label">Actionable RLE Task</div>
-                        </div>
-                    </div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Open Tickets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">7</div>
-                            <div class="stat-label">Resolves MTD</div>
-                        </div>
-                    </div>
-                    <div class="asap-section">
-                        <div class="asap-count">🚨 4 ASAP Cases</div>
-                        <div class="asap-tickets">
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/189475', '_blank')">
-                                <div class="ticket-customer">Daniel Aguilera</div>
-                                <div class="ticket-id">Project #189475</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 14 days since update</div>
-                            </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/284014', '_blank')">
-                                <div class="ticket-customer">Francis Lagadia</div>
-                                <div class="ticket-id">Project #284014</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 12 days since update</div>
-                            </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/379880', '_blank')">
-                                <div class="ticket-customer">Eamon Hughes</div>
-                                <div class="ticket-id">Project #379880</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 14 days since update</div>
-                            </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/558318', '_blank')">
-                                <div class="ticket-customer">Tracy Perry</div>
-                                <div class="ticket-id">Project #558318</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 14 days since update</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Lala Wheeler -->
-                <div class="specialist-card has-asap">
-                    <div class="specialist-name">Lala Wheeler</div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">49</div>
-                            <div class="stat-label">Active Cases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">6</div>
-                            <div class="stat-label">Actionable RLE Task</div>
-                        </div>
-                    </div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Open Tickets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">5</div>
-                            <div class="stat-label">Resolves MTD</div>
-                        </div>
-                    </div>
-                    <div class="asap-section">
-                        <div class="asap-count">🚨 3 ASAP Cases</div>
-                        <div class="asap-tickets">
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/386813', '_blank')">
-                                <div class="ticket-customer">Robert Abolian</div>
-                                <div class="ticket-id">Project #386813</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 9 days since update</div>
-                            </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/555126', '_blank')">
-                                <div class="ticket-customer">Rommel Hernandez</div>
-                                <div class="ticket-id">Project #555126</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 9 days since update</div>
-                            </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/573133', '_blank')">
-                                <div class="ticket-customer">Omar Hassan</div>
-                                <div class="ticket-id">Project #573133</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 9 days since update</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Jennifer Burns -->
-                <div class="specialist-card has-asap">
-                    <div class="specialist-name">Jennifer Burns</div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">32</div>
-                            <div class="stat-label">Active Cases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">10</div>
-                            <div class="stat-label">Actionable RLE Task</div>
-                        </div>
-                    </div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Open Tickets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">3</div>
-                            <div class="stat-label">Resolves MTD</div>
-                        </div>
-                    </div>
-                    <div class="asap-section">
-                        <div class="asap-count">🚨 2 ASAP Cases</div>
-                        <div class="asap-tickets">
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/355509', '_blank')">
-                                <div class="ticket-customer">Dwight Maxwell</div>
-                                <div class="ticket-id">Project #355509</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 31 days since update</div>
-                            </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/200230', '_blank')">
-                                <div class="ticket-customer">Daniel Wheeler</div>
-                                <div class="ticket-id">Project #200230</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 21 days since update</div>
+                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/588306', '_blank')">
+                                <div class="ticket-customer">Theresa Lopez Manzo</div>
+                                <div class="ticket-id">Project #588306</div>
+                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
                             </div>
                         </div>
                     </div>
@@ -955,17 +744,227 @@
                         </div>
                     </div>
                     <div class="asap-section">
-                        <div class="asap-count">🚨 2 ASAP Cases</div>
+                        <div class="asap-count">🚨 11 ASAP Cases (11 Past Due)</div>
                         <div class="asap-tickets">
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/342763', '_blank')">
-                                <div class="ticket-customer">Shirishkumar Shelat</div>
-                                <div class="ticket-id">Project #342763</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 9 days since update</div>
+                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/150017', '_blank')">
+                                <div class="ticket-customer">Olga Otkina</div>
+                                <div class="ticket-id">Project #150017</div>
+                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
                             </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/493209', '_blank')">
-                                <div class="ticket-customer">Monte Sally</div>
-                                <div class="ticket-id">Project #493209</div>
-                                <div class="ticket-reason sla-violation">SLA Violation: 9 days since update</div>
+                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/322142', '_blank')">
+                                <div class="ticket-customer">Thomas Marchant</div>
+                                <div class="ticket-id">Project #322142</div>
+                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
+                            </div>
+                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/424329', '_blank')">
+                                <div class="ticket-customer">Rebecca Hollingsead</div>
+                                <div class="ticket-id">Project #424329</div>
+                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
+                            </div>
+                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/453048', '_blank')">
+                                <div class="ticket-customer">Alice Vantiger</div>
+                                <div class="ticket-id">Project #453048</div>
+                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
+                            </div>
+                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/453955', '_blank')">
+                                <div class="ticket-customer">William Hajek</div>
+                                <div class="ticket-id">Project #453955</div>
+                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
+                            </div>
+                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/487804', '_blank')">
+                                <div class="ticket-customer">James Jones</div>
+                                <div class="ticket-id">Project #487804</div>
+                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stephanie Gold -->
+                <div class="specialist-card has-asap">
+                    <div class="specialist-name">Stephanie Gold</div>
+                    <div class="specialist-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">51</div>
+                            <div class="stat-label">Active Cases</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">Actionable RLE Task</div>
+                        </div>
+                    </div>
+                    <div class="specialist-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">Open Tickets</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">9</div>
+                            <div class="stat-label">Resolves MTD</div>
+                        </div>
+                    </div>
+                    <div class="asap-section">
+                        <div class="asap-count">🎄 4 Holiday-Adjusted ASAP Cases</div>
+                        <div class="asap-tickets">
+                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/189475', '_blank')">
+                                <div class="ticket-customer">Daniel Aguilera</div>
+                                <div class="ticket-id">Project #189475</div>
+                                <div class="ticket-reason sla-violation">Holiday SLA: 14 days (≥10 threshold)</div>
+                            </div>
+                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/347405', '_blank')">
+                                <div class="ticket-customer">Kim Capra</div>
+                                <div class="ticket-id">Project #347405</div>
+                                <div class="ticket-reason sla-violation">Holiday SLA: 14 days (≥10 threshold)</div>
+                            </div>
+                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/379880', '_blank')">
+                                <div class="ticket-customer">Eamon Hughes</div>
+                                <div class="ticket-id">Project #379880</div>
+                                <div class="ticket-reason sla-violation">Holiday SLA: 10 days (≥10 threshold)</div>
+                            </div>
+                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/558318', '_blank')">
+                                <div class="ticket-customer">Tracy Perry</div>
+                                <div class="ticket-id">Project #558318</div>
+                                <div class="ticket-reason sla-violation">Holiday SLA: 14 days (≥10 threshold)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jennifer Burns -->
+                <div class="specialist-card has-asap">
+                    <div class="specialist-name">Jennifer Burns</div>
+                    <div class="specialist-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">32</div>
+                            <div class="stat-label">Active Cases</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">10</div>
+                            <div class="stat-label">Actionable RLE Task</div>
+                        </div>
+                    </div>
+                    <div class="specialist-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">Open Tickets</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">Resolves MTD</div>
+                        </div>
+                    </div>
+                    <div class="asap-section">
+                        <div class="asap-count">🚨 1 ASAP Case (1 Past Due - SLA Waived Today)</div>
+                        <div class="asap-tickets">
+                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/468488', '_blank')">
+                                <div class="ticket-customer">Steven Dunn</div>
+                                <div class="ticket-id">Project #468488</div>
+                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- James Gutcher -->
+                <div class="specialist-card has-asap">
+                    <div class="specialist-name">James Gutcher</div>
+                    <div class="specialist-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">43</div>
+                            <div class="stat-label">Active Cases</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">11</div>
+                            <div class="stat-label">Actionable RLE Task</div>
+                        </div>
+                    </div>
+                    <div class="specialist-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">Open Tickets</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">10</div>
+                            <div class="stat-label">Resolves MTD</div>
+                        </div>
+                    </div>
+                    <div class="asap-section">
+                        <div class="asap-count">🚨 1 Past Due ASAP Case</div>
+                        <div class="asap-tickets">
+                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/212034', '_blank')">
+                                <div class="ticket-customer">Dale Thompson</div>
+                                <div class="ticket-id">Project #212034</div>
+                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lala Wheeler -->
+                <div class="specialist-card has-asap">
+                    <div class="specialist-name">Lala Wheeler</div>
+                    <div class="specialist-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">50</div>
+                            <div class="stat-label">Active Cases</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">6</div>
+                            <div class="stat-label">Actionable RLE Task</div>
+                        </div>
+                    </div>
+                    <div class="specialist-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">Open Tickets</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">5</div>
+                            <div class="stat-label">Resolves MTD</div>
+                        </div>
+                    </div>
+                    <div class="asap-section">
+                        <div class="asap-count">🚨 1 Past Due ASAP Case</div>
+                        <div class="asap-tickets">
+                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/504990', '_blank')">
+                                <div class="ticket-customer">Lindsay Wagner</div>
+                                <div class="ticket-id">Project #504990</div>
+                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Janeth Moyal -->
+                <div class="specialist-card has-asap">
+                    <div class="specialist-name">Janeth Moyal</div>
+                    <div class="specialist-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">45</div>
+                            <div class="stat-label">Active Cases</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">1</div>
+                            <div class="stat-label">Actionable RLE Task</div>
+                        </div>
+                    </div>
+                    <div class="specialist-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">Open Tickets</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">5</div>
+                            <div class="stat-label">Resolves MTD</div>
+                        </div>
+                    </div>
+                    <div class="asap-section">
+                        <div class="asap-count">🎄 1 Holiday-Adjusted ASAP Case</div>
+                        <div class="asap-tickets">
+                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/240011', '_blank')">
+                                <div class="ticket-customer">Jared Vanore</div>
+                                <div class="ticket-id">Project #240011</div>
+                                <div class="ticket-reason sla-violation">Holiday SLA: 10 days (≥10 threshold)</div>
                             </div>
                         </div>
                     </div>
