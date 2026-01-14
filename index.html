@@ -3,1002 +3,879 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freedom Forever - Business Resolutions Dashboard</title>
+    <title>Freedom Forever Business Resolutions Dashboard</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        :root {
-            --primary-orange: #FF5722;
-            --primary-blue: #1565C0;
-            --dark-bg: #0A0E17;
-            --card-bg: #162033;
-            --text-primary: #F8FAFC;
-            --text-secondary: #94A3B8;
-            --accent-green: #10B981;
-            --accent-red: #EF4444;
-            --accent-amber: #F59E0B;
-            --border-color: #1E293B;
-            --hover-glow: rgba(255, 87, 34, 0.2);
-            --shadow-elevation: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-            --shadow-glow: 0 0 20px rgba(255, 87, 34, 0.3);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a202c 50%, var(--primary-blue) 100%);
-            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6741 100%);
             min-height: 100vh;
-            background-attachment: fixed;
-            font-weight: 400;
-            line-height: 1.6;
+            color: white;
+            padding: 20px;
         }
-
-        .header {
-            background: linear-gradient(90deg, var(--primary-orange), var(--primary-blue));
-            padding: 2rem 2rem;
-            box-shadow: var(--shadow-elevation);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.05;
-        }
-
-        .header h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.75rem;
-            font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            margin-bottom: 0.5rem;
-            background: linear-gradient(45deg, #ffffff, #f1f5f9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.025em;
-        }
-
-        .header h2 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.125rem;
-            font-weight: 500;
-            opacity: 0.95;
-            letter-spacing: 0.5px;
-        }
-
-        .last-updated {
-            position: absolute;
-            top: 1.5rem;
-            right: 2rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
-            background: rgba(255,255,255,0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-
+        
         .dashboard-container {
-            padding: 2rem;
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
         }
-
-        .dashboard-grid {
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 8px;
+            font-weight: 300;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.8;
+        }
+        
+        .main-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 30px;
+            margin-bottom: 30px;
         }
-
-        .overview-section, .quick-stats-section {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: var(--shadow-elevation);
-            border: 1px solid var(--border-color);
-        }
-
+        
         .section-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, var(--primary-orange), var(--primary-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ff6b35;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
-
-        .overview-stats {
+        
+        .team-overview {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .overview-main {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            margin-bottom: 25px;
         }
-
-        .main-stat {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 4rem;
-            font-weight: 900;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .sub-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .sub-stat {
-            text-align: center;
-            padding: 1rem;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .sub-stat-value {
-            font-size: 1.75rem;
-            font-weight: 800;
-            color: var(--primary-orange);
-            margin-bottom: 0.25rem;
-        }
-
-        .sub-stat-value.past-due {
-            color: var(--accent-red);
-        }
-
-        .sub-stat-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .quick-stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-
-        .quick-stat {
-            text-align: center;
-            padding: 1.5rem 1rem;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .quick-stat-value {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent-green);
-            margin-bottom: 0.5rem;
-        }
-
-        .quick-stat-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .action-section {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow-elevation);
-            border: 1px solid var(--border-color);
-        }
-
-        .action-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .priority-list {
-            list-style: none;
-            --bullet-color: var(--primary-orange);
-        }
-
-        .priority-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .priority-list li::before {
-            content: '●';
-            position: absolute;
-            left: 0;
-            color: var(--bullet-color);
+        
+        .total-cases {
+            font-size: 3.5em;
             font-weight: bold;
-            font-size: 1.2rem;
+            color: #3498db;
+            margin-right: 20px;
         }
-
-        .action-stats {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        
+        .total-label {
+            font-size: 1.1em;
+            opacity: 0.8;
         }
-
-        .action-stat-single {
-            text-align: center;
-            padding: 1.5rem;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            min-width: 120px;
-        }
-
-        .action-stat-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .action-stat-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .performance-section {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow-elevation);
-            border: 1px solid var(--border-color);
-        }
-
-        .performer-stats {
+        
+        .overview-stats {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 15px;
         }
-
-        .performer-stat {
-            padding: 1.5rem;
-            border-radius: 12px;
+        
+        .stat-box {
+            background: rgba(255,255,255,0.08);
+            padding: 15px;
+            border-radius: 10px;
             text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
         }
-
-        .performer-label {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
+        
+        .stat-number {
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
-
-        .performer-name {
-            font-size: 1.25rem;
-            font-weight: 700;
+        
+        .stat-number.danger { color: #e74c3c; }
+        .stat-number.warning { color: #f39c12; }
+        .stat-number.success { color: #27ae60; }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
         }
-
-        .specialists-section {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: var(--shadow-elevation);
-            border: 1px solid var(--border-color);
+        
+        .quick-stats {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
-
+        
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+        }
+        
+        .quick-box {
+            background: rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .quick-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .quick-number.primary { color: #3498db; }
+        .quick-number.success { color: #27ae60; }
+        .quick-number.info { color: #17a2b8; }
+        .quick-number.secondary { color: #6c757d; }
+        
+        .quick-label {
+            font-size: 0.95em;
+            opacity: 0.8;
+        }
+        
+        .priorities-section {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .priorities-content {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 30px;
+        }
+        
+        .priorities-left {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            font-size: 1.05em;
+        }
+        
+        .status-icon {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .status-icon.success { background: #27ae60; }
+        .status-icon.warning { background: #f39c12; }
+        .status-icon.info { background: #3498db; }
+        
+        .priority-highlight {
+            background: rgba(39, 174, 96, 0.2);
+            color: #2ecc71;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .quick-links-box {
+            background: rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 200px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .links-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #3498db;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        
+        .links-label {
+            text-align: center;
+            font-size: 0.95em;
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+        
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .quick-link {
+            color: #74b9ff;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 5px 8px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        .quick-link:hover {
+            background: rgba(255,255,255,0.1);
+            text-decoration: underline;
+        }
+        
+        .performance-section {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .performance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .performance-box {
+            background: rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .performance-icon {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .performance-title {
+            font-size: 1em;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+        
+        .performance-leader {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2ecc71;
+        }
+        
         .specialists-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
         }
-
+        
         .specialist-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-color);
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
             border-radius: 12px;
-            padding: 1.5rem;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .specialist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .specialist-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .specialist-name {
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        
+        .asap-badge {
+            background: #e74c3c;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        
+        .asap-badge.zero { background: #27ae60; }
+        
+        .specialist-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .metric {
+            text-align: center;
+            padding: 8px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+        }
+        
+        .metric-value {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .metric-label {
+            font-size: 0.8em;
+            opacity: 0.7;
+            margin-top: 3px;
+        }
+        
+        .no-asap {
+            text-align: center;
+            color: #27ae60;
+            font-style: italic;
+            padding: 10px;
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 6px;
+        }
+        
+        .asap-details {
+            background: rgba(231, 76, 60, 0.1);
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            padding: 10px;
+            border-radius: 6px;
+        }
+        
+        .asap-details h4 {
+            color: #e74c3c;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+        
+        .asap-case {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 10px;
+            margin: 6px 0;
+            border-radius: 4px;
+            font-size: 0.85em;
+            border-left: 3px solid #e74c3c;
+        }
+        
+        .asap-case a {
+            color: #74b9ff !important;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            padding: 2px 0;
             transition: all 0.3s ease;
         }
-
-        .specialist-card.has-asap {
-            border-color: var(--accent-red);
-            box-shadow: 0 0 0 1px var(--accent-red), var(--shadow-elevation);
+        
+        .asap-case a:hover {
+            color: #0984e3 !important;
+            text-decoration: underline;
+            transform: translateX(3px);
         }
-
-        .specialist-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow);
-            border-color: var(--primary-orange);
-        }
-
-        .specialist-name {
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary-orange);
-        }
-
-        .specialist-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 0.75rem 0.5rem;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--accent-green);
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .asap-section {
-            margin-top: 1rem;
-        }
-
-        .asap-count {
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            padding: 0.5rem 0.75rem;
-            border-radius: 6px;
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            color: var(--accent-red);
-        }
-
-        .asap-tickets {
-            max-height: 300px;
-            overflow-y: auto;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-orange) transparent;
-        }
-
-        .asap-tickets::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        .asap-tickets::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .asap-tickets::-webkit-scrollbar-thumb {
-            background: var(--primary-orange);
-            border-radius: 2px;
-        }
-
-        .asap-ticket {
-            padding: 0.75rem;
-            margin-bottom: 0.5rem;
-            border-radius: 8px;
-            background: rgba(239, 68, 68, 0.05);
-            border: 1px solid rgba(239, 68, 68, 0.2);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .asap-ticket:hover {
-            background: rgba(239, 68, 68, 0.1);
-            border-color: rgba(239, 68, 68, 0.4);
-            transform: translateX(2px);
-        }
-
-        .asap-ticket.past-due {
-            background: rgba(239, 68, 68, 0.15);
-            border-color: var(--accent-red);
-        }
-
-        .asap-ticket.sla-violation {
-            background: rgba(245, 158, 11, 0.1);
-            border-color: var(--accent-amber);
-        }
-
-        .ticket-customer {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .ticket-id {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            font-family: 'Courier New', monospace;
-            margin-bottom: 0.25rem;
-        }
-
-        .ticket-reason {
-            font-size: 0.75rem;
-            font-weight: 500;
-            font-style: italic;
-            margin-top: 0.25rem;
-        }
-
-        .ticket-reason.past-due {
-            color: var(--accent-red);
-        }
-
-        .ticket-reason.sla-violation {
-            color: var(--accent-amber);
-        }
-
-        .ticket-reason.missing-followup {
-            color: var(--primary-orange);
-        }
-
-        @media (max-width: 1200px) {
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
+        
         @media (max-width: 768px) {
-            .dashboard-container {
-                padding: 1rem;
-            }
-            
-            .header {
-                padding: 1.5rem 1rem;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .last-updated {
-                position: static;
-                margin-top: 1rem;
-                display: inline-block;
-            }
-            
-            .overview-stats {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .action-content {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .specialists-grid {
-                grid-template-columns: 1fr;
-            }
+            .main-grid { grid-template-columns: 1fr; }
+            .overview-stats { grid-template-columns: 1fr; }
+            .quick-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .performance-grid { grid-template-columns: 1fr; }
+            .priorities-content { grid-template-columns: 1fr; }
+            .specialists-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Business Resolutions Dashboard</h1>
-        <h2>Real-time Case Management & Performance Analytics</h2>
-        <div class="last-updated">🔴 LIVE DATA - Monday, January 13, 2026 - 9:54 AM (Las Vegas)</div>
-    </div>
-
     <div class="dashboard-container">
-        <!-- Team Overview & Quick Stats -->
-        <div class="dashboard-grid">
-            <div class="overview-section">
-                <h3 class="section-title">Team Overview</h3>
+        <div class="header">
+            <h1>🏢 Freedom Forever Business Resolutions Dashboard</h1>
+            <p class="subtitle">Wednesday, January 14, 2026 • Business Week: Jan 12-18, 2026</p>
+        </div>
+        
+        <div class="main-grid">
+            <!-- Team Overview Section -->
+            <div class="team-overview">
+                <h2 class="section-title">Team Overview</h2>
+                <div class="overview-main">
+                    <div class="total-cases">404</div>
+                    <div class="total-label">Total Active Cases</div>
+                </div>
                 <div class="overview-stats">
-                    <div class="main-stat">
-                        <div class="stat-value" style="background: linear-gradient(45deg, var(--primary-orange), var(--primary-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">389</div>
-                        <div class="stat-label">Total Active Cases</div>
+                    <div class="stat-box">
+                        <div class="stat-number danger">15</div>
+                        <div class="stat-label">Follow-ups Past Due</div>
                     </div>
-                    <div class="sub-stats">
-                        <div class="sub-stat">
-                            <div class="sub-stat-value past-due">16</div>
-                            <div class="sub-stat-label">Follow-ups Past Due</div>
-                        </div>
-                        <div class="sub-stat">
-                            <div class="sub-stat-value">162</div>
-                            <div class="sub-stat-label">Cases over 90d</div>
-                        </div>
-                        <div class="sub-stat">
-                            <div class="sub-stat-value">81</div>
-                            <div class="sub-stat-label">Cases over 180d</div>
-                        </div>
+                    <div class="stat-box">
+                        <div class="stat-number warning">23</div>
+                        <div class="stat-label">ASAP Cases</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number success">76</div>
+                        <div class="stat-label">Today's Follow-ups</div>
                     </div>
                 </div>
             </div>
-
-            <div class="quick-stats-section">
-                <h3 class="section-title">Quick Stats</h3>
-                <div class="quick-stats-grid">
-                    <div class="quick-stat">
-                        <div class="quick-stat-value">8</div>
-                        <div class="quick-stat-label">New This Week</div>
+            
+            <!-- Quick Stats Section -->
+            <div class="quick-stats">
+                <h2 class="section-title">Quick Stats</h2>
+                <div class="quick-grid" style="grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                    <div class="quick-box">
+                        <div class="quick-number primary">28</div>
+                        <div class="quick-label">New This Week</div>
                     </div>
-                    <div class="quick-stat">
-                        <div class="quick-stat-value">10</div>
-                        <div class="quick-stat-label">Resolved This Week</div>
+                    <div class="quick-box">
+                        <div class="quick-number success">15</div>
+                        <div class="quick-label">Resolved This Week</div>
                     </div>
-                    <div class="quick-stat">
-                        <div class="quick-stat-value">122d</div>
-                        <div class="quick-stat-label">Avg Age</div>
+                    <div class="quick-box">
+                        <div class="quick-number info">122d</div>
+                        <div class="quick-label">Avg Age</div>
                     </div>
-                    <div class="quick-stat">
-                        <div class="quick-stat-value">1</div>
-                        <div class="quick-stat-label">Regulatory Dismissals</div>
+                    <div class="quick-box">
+                        <div class="quick-number secondary">2</div>
+                        <div class="quick-label">Regulatory Dismissals</div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Today's Priorities -->
-        <div class="action-section">
-            <h3 class="section-title">Today's Priorities</h3>
-            <div class="action-content">
-                <div>
-                    <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--accent-red);">🚨 Critical Action Items</h4>
-                    <ul class="priority-list" style="--bullet-color: var(--accent-red);">
-                        <li>Address 16 past due follow-ups (overdue from Jan 12)</li>
-                        <li>Complete 86 follow-ups scheduled for today (Jan 13)</li>
-                        <li>Strong performance: 10 resolved vs 8 new this week (+2 net reduction)</li>
-                        <li>Monitor: 21 ASAP cases (SLA waived for Kriscely & Jennifer today)</li>
-                    </ul>
-                </div>
-                <div class="action-stats">
-                    <div class="action-stat-single">
-                        <div class="action-stat-value" style="color: var(--primary-orange);">1</div>
-                        <div class="action-stat-label">Approvals & Guidance</div>
+                    <div class="quick-box">
+                        <div class="quick-number warning" style="color: #e74c3c;">7</div>
+                        <div class="quick-label">New Regulatory Complaints</div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Performance Leaders -->
+        
+        <!-- Today's Priorities Section -->
+        <div class="priorities-section">
+            <h2 class="section-title">Today's Priorities</h2>
+            <div class="priorities-content">
+                <div class="priorities-left">
+                    <div class="priority-highlight">✅ Strong Performance Today</div>
+                    <div class="status-indicator">
+                        <div class="status-icon success"></div>
+                        <span>Good: 15 past due follow-ups (manageable workload)</span>
+                    </div>
+                    <div class="status-indicator">
+                        <div class="status-icon info"></div>
+                        <span>Active: 28 new cases this week, 15 resolved</span>
+                    </div>
+                    <div class="status-indicator">
+                        <div class="status-icon warning"></div>
+                        <span>Monitor: 23 ASAP cases for continued SLA compliance</span>
+                    </div>
+                </div>
+                <div class="quick-links-box">
+                    <div class="links-number">5</div>
+                    <div class="links-label">Quick Access</div>
+                    <div class="links-list">
+                        <a href="https://portal.freedomforever.com/projects-dashboard" target="_blank" class="quick-link">LIGHTSPEED Portal</a>
+                        <a href="https://sunrun.my.site.com/partner/PartnerPortalLogin?startURL=%2Fpartner%2FFSdispatchesSearch" target="_blank" class="quick-link">Sunrun FSD</a>
+                        <a href="https://omnidian.my.site.com/OmnidianFieldServicePartnerPortal/s/" target="_blank" class="quick-link">Omnidian WO</a>
+                        <a href="https://goodleap.my.site.com/GoodleapOM/s/login/?ec=302&startURL=%2FGoodleapOM%2Fs%2F" target="_blank" class="quick-link">GoodLeap Portal</a>
+                        <a href="https://podio.com/freedomforever/escalations-workspace/apps/escalations" target="_blank" class="quick-link">Podio Escalations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Performance Leaders Section -->
         <div class="performance-section">
-            <h3 class="section-title">Performance Leaders</h3>
-            <div class="performer-stats">
-                <div class="performer-stat" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3);">
-                    <div class="performer-label">🏆 Most Resolves Last Month:</div>
-                    <div class="performer-name" style="color: var(--accent-green);">Janeth Moyal - 39</div>
+            <h2 class="section-title">Performance Leaders</h2>
+            <div class="performance-grid">
+                <div class="performance-box">
+                    <div class="performance-icon">🏆</div>
+                    <div class="performance-title">Most Resolves Last Month:</div>
+                    <div class="performance-leader">Janeth Moyal - 39</div>
                 </div>
-                <div class="performer-stat" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3);">
-                    <div class="performer-label">⚡ This Week's Leaders (4-WAY TIE):</div>
-                    <div class="performer-name" style="color: var(--accent-green);">Stephanie, Chase, Janeth & Connor - 2 each</div>
+                <div class="performance-box">
+                    <div class="performance-icon">⚡</div>
+                    <div class="performance-title">This Week's Leaders:</div>
+                    <div class="performance-leader">Connor, Chase, Stephanie, Janeth - 3</div>
                 </div>
             </div>
         </div>
-
+        
         <!-- Specialists Grid -->
-        <div class="specialists-section">
-            <h3 class="section-title">Specialist Performance & ASAP Cases</h3>
-            <div class="specialists-grid">
-
-                <!-- Chase Albers -->
-                <div class="specialist-card">
-                    <div class="specialist-name">Chase Albers</div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">46</div>
-                            <div class="stat-label">Active Cases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">1</div>
-                            <div class="stat-label">Actionable RLE Task</div>
-                        </div>
-                    </div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Open Tickets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">10</div>
-                            <div class="stat-label">Resolves MTD</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Connor McNeill -->
-                <div class="specialist-card">
-                    <div class="specialist-name">Connor McNeill</div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">23</div>
-                            <div class="stat-label">Active Cases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">1</div>
-                            <div class="stat-label">Actionable RLE Task</div>
-                        </div>
-                    </div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Open Tickets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">11</div>
-                            <div class="stat-label">Resolves MTD</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Thomas Walters -->
-                <div class="specialist-card">
-                    <div class="specialist-name">Thomas Walters</div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">12</div>
-                            <div class="stat-label">Active Cases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Actionable RLE Task</div>
-                        </div>
-                    </div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Open Tickets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">8</div>
-                            <div class="stat-label">Resolves MTD</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kriscely Aldama -->
-                <div class="specialist-card has-asap">
-                    <div class="specialist-name">Kriscely Aldama</div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">45</div>
-                            <div class="stat-label">Active Cases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Actionable RLE Task</div>
-                        </div>
-                    </div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">1</div>
-                            <div class="stat-label">Open Tickets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">4</div>
-                            <div class="stat-label">Resolves MTD</div>
-                        </div>
-                    </div>
-                    <div class="asap-section">
-                        <div class="asap-count">🚨 2 ASAP Cases (2 Past Due - SLA Waived Today)</div>
-                        <div class="asap-tickets">
-                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/494620', '_blank')">
-                                <div class="ticket-customer">Julieta Nieves</div>
-                                <div class="ticket-id">Project #494620</div>
-                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
-                            </div>
-                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/588306', '_blank')">
-                                <div class="ticket-customer">Theresa Lopez Manzo</div>
-                                <div class="ticket-id">Project #588306</div>
-                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Jaylin Boland -->
-                <div class="specialist-card has-asap">
+        <div class="specialists-grid">
+            <!-- Jaylin Boland - Highest Priority -->
+            <div class="specialist-card">
+                <div class="specialist-header">
                     <div class="specialist-name">Jaylin Boland</div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">42</div>
-                            <div class="stat-label">Active Cases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">2</div>
-                            <div class="stat-label">Actionable RLE Task</div>
-                        </div>
+                    <div class="asap-badge">12 ASAP</div>
+                </div>
+                <div class="specialist-metrics">
+                    <div class="metric">
+                        <div class="metric-value">43</div>
+                        <div class="metric-label">Active Escalations</div>
                     </div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Open Tickets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">3</div>
-                            <div class="stat-label">Resolves MTD</div>
-                        </div>
+                    <div class="metric">
+                        <div class="metric-value">12</div>
+                        <div class="metric-label">Today's Follow-ups</div>
                     </div>
-                    <div class="asap-section">
-                        <div class="asap-count">🚨 11 ASAP Cases (11 Past Due)</div>
-                        <div class="asap-tickets">
-                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/150017', '_blank')">
-                                <div class="ticket-customer">Olga Otkina</div>
-                                <div class="ticket-id">Project #150017</div>
-                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
-                            </div>
-                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/322142', '_blank')">
-                                <div class="ticket-customer">Thomas Marchant</div>
-                                <div class="ticket-id">Project #322142</div>
-                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
-                            </div>
-                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/424329', '_blank')">
-                                <div class="ticket-customer">Rebecca Hollingsead</div>
-                                <div class="ticket-id">Project #424329</div>
-                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
-                            </div>
-                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/453048', '_blank')">
-                                <div class="ticket-customer">Alice Vantiger</div>
-                                <div class="ticket-id">Project #453048</div>
-                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
-                            </div>
-                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/453955', '_blank')">
-                                <div class="ticket-customer">William Hajek</div>
-                                <div class="ticket-id">Project #453955</div>
-                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
-                            </div>
-                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/487804', '_blank')">
-                                <div class="ticket-customer">James Jones</div>
-                                <div class="ticket-id">Project #487804</div>
-                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
-                            </div>
-                        </div>
+                    <div class="metric">
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">Resolved This Week</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">Monthly Resolves</div>
                     </div>
                 </div>
-
-                <!-- Stephanie Gold -->
-                <div class="specialist-card has-asap">
-                    <div class="specialist-name">Stephanie Gold</div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">51</div>
-                            <div class="stat-label">Active Cases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Actionable RLE Task</div>
-                        </div>
+                <div class="asap-details" style="max-height: 250px; overflow-y: auto;">
+                    <h4>🚨 ASAP Cases (12): Immediate Action Required</h4>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/504066" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 504066</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
                     </div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Open Tickets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">9</div>
-                            <div class="stat-label">Resolves MTD</div>
-                        </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/487804" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 487804</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
                     </div>
-                    <div class="asap-section">
-                        <div class="asap-count">🎄 4 Holiday-Adjusted ASAP Cases</div>
-                        <div class="asap-tickets">
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/189475', '_blank')">
-                                <div class="ticket-customer">Daniel Aguilera</div>
-                                <div class="ticket-id">Project #189475</div>
-                                <div class="ticket-reason sla-violation">Holiday SLA: 14 days (≥10 threshold)</div>
-                            </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/347405', '_blank')">
-                                <div class="ticket-customer">Kim Capra</div>
-                                <div class="ticket-id">Project #347405</div>
-                                <div class="ticket-reason sla-violation">Holiday SLA: 14 days (≥10 threshold)</div>
-                            </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/379880', '_blank')">
-                                <div class="ticket-customer">Eamon Hughes</div>
-                                <div class="ticket-id">Project #379880</div>
-                                <div class="ticket-reason sla-violation">Holiday SLA: 10 days (≥10 threshold)</div>
-                            </div>
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/558318', '_blank')">
-                                <div class="ticket-customer">Tracy Perry</div>
-                                <div class="ticket-id">Project #558318</div>
-                                <div class="ticket-reason sla-violation">Holiday SLA: 14 days (≥10 threshold)</div>
-                            </div>
-                        </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/453048" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 453048</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
                     </div>
-                </div>
-
-                <!-- Jennifer Burns -->
-                <div class="specialist-card has-asap">
-                    <div class="specialist-name">Jennifer Burns</div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">32</div>
-                            <div class="stat-label">Active Cases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">10</div>
-                            <div class="stat-label">Actionable RLE Task</div>
-                        </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/453955" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 453955</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
                     </div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Open Tickets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">3</div>
-                            <div class="stat-label">Resolves MTD</div>
-                        </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/548491" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 548491</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
                     </div>
-                    <div class="asap-section">
-                        <div class="asap-count">🚨 1 ASAP Case (1 Past Due - SLA Waived Today)</div>
-                        <div class="asap-tickets">
-                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/468488', '_blank')">
-                                <div class="ticket-customer">Steven Dunn</div>
-                                <div class="ticket-id">Project #468488</div>
-                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
-                            </div>
-                        </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/530458" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 530458</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/512045" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 512045</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/566983" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 566983</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/600506" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 600506</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/504459" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 504459</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/511787" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 511787</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/591775" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 591775</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
                     </div>
                 </div>
-
-                <!-- James Gutcher -->
-                <div class="specialist-card has-asap">
+            </div>
+            
+            <!-- James Gutcher -->
+            <div class="specialist-card">
+                <div class="specialist-header">
                     <div class="specialist-name">James Gutcher</div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">43</div>
-                            <div class="stat-label">Active Cases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">11</div>
-                            <div class="stat-label">Actionable RLE Task</div>
-                        </div>
+                    <div class="asap-badge">6 ASAP</div>
+                </div>
+                <div class="specialist-metrics">
+                    <div class="metric">
+                        <div class="metric-value">44</div>
+                        <div class="metric-label">Active Escalations</div>
                     </div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Open Tickets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">10</div>
-                            <div class="stat-label">Resolves MTD</div>
-                        </div>
+                    <div class="metric">
+                        <div class="metric-value">7</div>
+                        <div class="metric-label">Today's Follow-ups</div>
                     </div>
-                    <div class="asap-section">
-                        <div class="asap-count">🚨 1 Past Due ASAP Case</div>
-                        <div class="asap-tickets">
-                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/212034', '_blank')">
-                                <div class="ticket-customer">Dale Thompson</div>
-                                <div class="ticket-id">Project #212034</div>
-                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
-                            </div>
-                        </div>
+                    <div class="metric">
+                        <div class="metric-value">2</div>
+                        <div class="metric-label">Resolved This Week</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">11</div>
+                        <div class="metric-label">Monthly Resolves</div>
                     </div>
                 </div>
-
-                <!-- Lala Wheeler -->
-                <div class="specialist-card has-asap">
+                <div class="asap-details" style="max-height: 200px; overflow-y: auto;">
+                    <h4>🚨 ASAP Cases (6): Past Due Follow-ups</h4>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/219954" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 219954</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/610108" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 610108</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/341839" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 341839</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/287845" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 287845</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/550977" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 550977</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/567711" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 567711</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lala Wheeler -->
+            <div class="specialist-card">
+                <div class="specialist-header">
                     <div class="specialist-name">Lala Wheeler</div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">50</div>
-                            <div class="stat-label">Active Cases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">6</div>
-                            <div class="stat-label">Actionable RLE Task</div>
-                        </div>
+                    <div class="asap-badge">2 ASAP</div>
+                </div>
+                <div class="specialist-metrics">
+                    <div class="metric">
+                        <div class="metric-value">54</div>
+                        <div class="metric-label">Active Escalations</div>
                     </div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Open Tickets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">5</div>
-                            <div class="stat-label">Resolves MTD</div>
-                        </div>
+                    <div class="metric">
+                        <div class="metric-value">8</div>
+                        <div class="metric-label">Today's Follow-ups</div>
                     </div>
-                    <div class="asap-section">
-                        <div class="asap-count">🚨 1 Past Due ASAP Case</div>
-                        <div class="asap-tickets">
-                            <div class="asap-ticket past-due" onclick="window.open('https://portal.freedomforever.com/projects/504990', '_blank')">
-                                <div class="ticket-customer">Lindsay Wagner</div>
-                                <div class="ticket-id">Project #504990</div>
-                                <div class="ticket-reason past-due">Overdue: Due 2026-01-12</div>
-                            </div>
-                        </div>
+                    <div class="metric">
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">Resolved This Week</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">5</div>
+                        <div class="metric-label">Monthly Resolves</div>
                     </div>
                 </div>
-
-                <!-- Janeth Moyal -->
-                <div class="specialist-card has-asap">
+                <div class="asap-details">
+                    <h4>🚨 ASAP Cases (2): Past Due Follow-ups</h4>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/266827" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 266827</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/354483" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 354483</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Kriscely Aldama -->
+            <div class="specialist-card">
+                <div class="specialist-header">
+                    <div class="specialist-name">Kriscely Aldama</div>
+                    <div class="asap-badge">2 ASAP</div>
+                </div>
+                <div class="specialist-metrics">
+                    <div class="metric">
+                        <div class="metric-value">47</div>
+                        <div class="metric-label">Active Escalations</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">5</div>
+                        <div class="metric-label">Today's Follow-ups</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">Resolved This Week</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">4</div>
+                        <div class="metric-label">Monthly Resolves</div>
+                    </div>
+                </div>
+                <div class="asap-details">
+                    <h4>🚨 ASAP Cases (2): Past Due Follow-ups</h4>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/503018" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 503018</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/554241" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 554241</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Jennifer Burns -->
+            <div class="specialist-card">
+                <div class="specialist-header">
+                    <div class="specialist-name">Jennifer Burns</div>
+                    <div class="asap-badge">1 ASAP</div>
+                </div>
+                <div class="specialist-metrics">
+                    <div class="metric">
+                        <div class="metric-value">32</div>
+                        <div class="metric-label">Active Escalations</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">6</div>
+                        <div class="metric-label">Today's Follow-ups</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">Resolved This Week</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">Monthly Resolves</div>
+                    </div>
+                </div>
+                <div class="asap-details">
+                    <h4>🚨 ASAP Cases (1): Past Due Follow-up</h4>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/441840" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 441840</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Top Performers with 0 ASAP -->
+            <div class="specialist-card">
+                <div class="specialist-header">
+                    <div class="specialist-name">Connor McNeill</div>
+                    <div class="asap-badge zero">0 ASAP</div>
+                </div>
+                <div class="specialist-metrics">
+                    <div class="metric">
+                        <div class="metric-value">26</div>
+                        <div class="metric-label">Active Escalations</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">5</div>
+                        <div class="metric-label">Today's Follow-ups</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">Resolved This Week</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">12</div>
+                        <div class="metric-label">Monthly Resolves</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="specialist-card">
+                <div class="specialist-header">
+                    <div class="specialist-name">Chase Albers</div>
+                    <div class="asap-badge zero">0 ASAP</div>
+                </div>
+                <div class="specialist-metrics">
+                    <div class="metric">
+                        <div class="metric-value">46</div>
+                        <div class="metric-label">Active Escalations</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">9</div>
+                        <div class="metric-label">Today's Follow-ups</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">Resolved This Week</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">11</div>
+                        <div class="metric-label">Monthly Resolves</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="specialist-card">
+                <div class="specialist-header">
+                    <div class="specialist-name">Stephanie Gold</div>
+                    <div class="asap-badge zero">0 ASAP</div>
+                </div>
+                <div class="specialist-metrics">
+                    <div class="metric">
+                        <div class="metric-value">50</div>
+                        <div class="metric-label">Active Escalations</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">9</div>
+                        <div class="metric-label">Today's Follow-ups</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">Resolved This Week</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">10</div>
+                        <div class="metric-label">Monthly Resolves</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="specialist-card">
+                <div class="specialist-header">
                     <div class="specialist-name">Janeth Moyal</div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">45</div>
-                            <div class="stat-label">Active Cases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">1</div>
-                            <div class="stat-label">Actionable RLE Task</div>
-                        </div>
+                    <div class="asap-badge zero">0 ASAP</div>
+                </div>
+                <div class="specialist-metrics">
+                    <div class="metric">
+                        <div class="metric-value">50</div>
+                        <div class="metric-label">Active Escalations</div>
                     </div>
-                    <div class="specialist-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Open Tickets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">5</div>
-                            <div class="stat-label">Resolves MTD</div>
-                        </div>
+                    <div class="metric">
+                        <div class="metric-value">13</div>
+                        <div class="metric-label">Today's Follow-ups</div>
                     </div>
-                    <div class="asap-section">
-                        <div class="asap-count">🎄 1 Holiday-Adjusted ASAP Case</div>
-                        <div class="asap-tickets">
-                            <div class="asap-ticket sla-violation" onclick="window.open('https://portal.freedomforever.com/projects/240011', '_blank')">
-                                <div class="ticket-customer">Jared Vanore</div>
-                                <div class="ticket-id">Project #240011</div>
-                                <div class="ticket-reason sla-violation">Holiday SLA: 10 days (≥10 threshold)</div>
-                            </div>
-                        </div>
+                    <div class="metric">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">Resolved This Week</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">6</div>
+                        <div class="metric-label">Monthly Resolves</div>
                     </div>
                 </div>
-
+            </div>
+            
+            <div class="specialist-card">
+                <div class="specialist-header">
+                    <div class="specialist-name">Thomas Walters</div>
+                    <div class="asap-badge zero">0 ASAP</div>
+                </div>
+                <div class="specialist-metrics">
+                    <div class="metric">
+                        <div class="metric-value">12</div>
+                        <div class="metric-label">Active Escalations</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">2</div>
+                        <div class="metric-label">Today's Follow-ups</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">1</div>
+                        <div class="metric-label">Resolved This Week</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">8</div>
+                        <div class="metric-label">Monthly Resolves</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <script>
-        // Auto-refresh every 5 minutes
-        setTimeout(function() {
-            location.reload();
-        }, 300000);
-        
-        // Add live data indicator
-        document.addEventListener('DOMContentLoaded', function() {
-            const liveIndicator = document.querySelector('.last-updated');
-            if (liveIndicator) {
-                liveIndicator.style.animation = 'pulse 2s infinite';
-            }
-        });
-        
-        // Add pulse animation for live indicator
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes pulse {
-                0% { opacity: 0.8; }
-                50% { opacity: 1; }
-                100% { opacity: 0.8; }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
 </body>
 </html>
