@@ -137,6 +137,7 @@
         .quick-number.success { color: #27ae60; }
         .quick-number.info { color: #17a2b8; }
         .quick-number.secondary { color: #6c757d; }
+        .quick-number.warning { color: #e74c3c; }
         
         .quick-label {
             font-size: 0.95em;
@@ -322,7 +323,7 @@
         
         .specialist-metrics {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
             margin-bottom: 15px;
         }
@@ -344,15 +345,6 @@
             font-size: 0.8em;
             opacity: 0.7;
             margin-top: 3px;
-        }
-        
-        .no-asap {
-            text-align: center;
-            color: #27ae60;
-            font-style: italic;
-            padding: 10px;
-            background: rgba(39, 174, 96, 0.1);
-            border-radius: 6px;
         }
         
         .asap-details {
@@ -406,7 +398,7 @@
     <div class="dashboard-container">
         <div class="header">
             <h1>🏢 Freedom Forever Business Resolutions Dashboard</h1>
-            <p class="subtitle">Wednesday, January 14, 2026 • Business Week: Jan 12-18, 2026</p>
+            <p class="subtitle">Thursday, January 15, 2026 • Business Week: Jan 12-18, 2026</p>
         </div>
         
         <div class="main-grid">
@@ -414,21 +406,21 @@
             <div class="team-overview">
                 <h2 class="section-title">Team Overview</h2>
                 <div class="overview-main">
-                    <div class="total-cases">404</div>
+                    <div class="total-cases">405</div>
                     <div class="total-label">Total Active Cases</div>
                 </div>
                 <div class="overview-stats">
                     <div class="stat-box">
-                        <div class="stat-number danger">15</div>
-                        <div class="stat-label">Follow-ups Past Due</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number warning">23</div>
+                        <div class="stat-number warning">9</div>
                         <div class="stat-label">ASAP Cases</div>
                     </div>
                     <div class="stat-box">
-                        <div class="stat-number success">76</div>
+                        <div class="stat-number success">50</div>
                         <div class="stat-label">Today's Follow-ups</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number success">27</div>
+                        <div class="stat-label">Weekly Resolves</div>
                     </div>
                 </div>
             </div>
@@ -436,25 +428,25 @@
             <!-- Quick Stats Section -->
             <div class="quick-stats">
                 <h2 class="section-title">Quick Stats</h2>
-                <div class="quick-grid" style="grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                <div class="quick-grid">
                     <div class="quick-box">
-                        <div class="quick-number primary">28</div>
+                        <div class="quick-number primary">42</div>
                         <div class="quick-label">New This Week</div>
                     </div>
                     <div class="quick-box">
-                        <div class="quick-number success">15</div>
+                        <div class="quick-number success">27</div>
                         <div class="quick-label">Resolved This Week</div>
                     </div>
                     <div class="quick-box">
-                        <div class="quick-number info">122d</div>
+                        <div class="quick-number info">120d</div>
                         <div class="quick-label">Avg Age</div>
                     </div>
                     <div class="quick-box">
-                        <div class="quick-number secondary">2</div>
+                        <div class="quick-number secondary">3</div>
                         <div class="quick-label">Regulatory Dismissals</div>
                     </div>
                     <div class="quick-box">
-                        <div class="quick-number warning" style="color: #e74c3c;">7</div>
+                        <div class="quick-number warning">8</div>
                         <div class="quick-label">New Regulatory Complaints</div>
                     </div>
                 </div>
@@ -466,22 +458,22 @@
             <h2 class="section-title">Today's Priorities</h2>
             <div class="priorities-content">
                 <div class="priorities-left">
-                    <div class="priority-highlight">✅ Strong Performance Today</div>
+                    <div class="priority-highlight">✅ Excellent Performance Today</div>
                     <div class="status-indicator">
                         <div class="status-icon success"></div>
-                        <span>Good: 15 past due follow-ups (manageable workload)</span>
+                        <span>Excellent: Only 9 ASAP cases (major improvement!)</span>
                     </div>
                     <div class="status-indicator">
                         <div class="status-icon info"></div>
-                        <span>Active: 28 new cases this week, 15 resolved</span>
+                        <span>Strong: 42 new cases this week, 27 resolved</span>
                     </div>
                     <div class="status-indicator">
-                        <div class="status-icon warning"></div>
-                        <span>Monitor: 23 ASAP cases for continued SLA compliance</span>
+                        <div class="status-icon success"></div>
+                        <span>Good: 50 follow-ups due today across team</span>
                     </div>
                 </div>
                 <div class="quick-links-box">
-                    <div class="links-number">5</div>
+                    <div class="links-number">6</div>
                     <div class="links-label">Quick Access</div>
                     <div class="links-list">
                         <a href="https://portal.freedomforever.com/projects-dashboard" target="_blank" class="quick-link">LIGHTSPEED Portal</a>
@@ -489,6 +481,7 @@
                         <a href="https://omnidian.my.site.com/OmnidianFieldServicePartnerPortal/s/" target="_blank" class="quick-link">Omnidian WO</a>
                         <a href="https://goodleap.my.site.com/GoodleapOM/s/login/?ec=302&startURL=%2FGoodleapOM%2Fs%2F" target="_blank" class="quick-link">GoodLeap Portal</a>
                         <a href="https://podio.com/freedomforever/escalations-workspace/apps/escalations" target="_blank" class="quick-link">Podio Escalations</a>
+                        <a href="https://freedomsolarco.sharepoint.com/sites/EscalationsTemplates/_layouts/15/Doc.aspx?sourcedoc={334346cf-930a-45f3-98e6-1d341c0f7acf}&action=edit&wd=target%28Legal%20Updates.one%7Cb444d4bb-9a10-41de-a389-e3fb18f36a16%2FSettlements%20101%7C1a970cb6-5ff2-4e23-9f9a-5feccf6272b2%2F%29&wdorigin=NavigationUrl" target="_blank" class="quick-link">Department Updates</a>
                     </div>
                 </div>
             </div>
@@ -500,182 +493,68 @@
             <div class="performance-grid">
                 <div class="performance-box">
                     <div class="performance-icon">🏆</div>
-                    <div class="performance-title">Most Resolves Last Month:</div>
-                    <div class="performance-leader">Janeth Moyal - 39</div>
+                    <div class="performance-title">January Champion:</div>
+                    <div class="performance-leader">Connor McNeill - 13 resolves</div>
                 </div>
                 <div class="performance-box">
                     <div class="performance-icon">⚡</div>
-                    <div class="performance-title">This Week's Leaders:</div>
-                    <div class="performance-leader">Connor, Chase, Stephanie, Janeth - 3</div>
+                    <div class="performance-title">This Week's Leader:</div>
+                    <div class="performance-leader">Janeth Moyal - 8 resolves</div>
                 </div>
             </div>
         </div>
         
         <!-- Specialists Grid -->
         <div class="specialists-grid">
-            <!-- Jaylin Boland - Highest Priority -->
+            <!-- Jaylin Boland - Highest ASAP -->
             <div class="specialist-card">
                 <div class="specialist-header">
                     <div class="specialist-name">Jaylin Boland</div>
-                    <div class="asap-badge">12 ASAP</div>
+                    <div class="asap-badge">4 ASAP</div>
                 </div>
                 <div class="specialist-metrics">
                     <div class="metric">
-                        <div class="metric-value">43</div>
-                        <div class="metric-label">Active Escalations</div>
+                        <div class="metric-value">47</div>
+                        <div class="metric-label">Active Cases</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">12</div>
-                        <div class="metric-label">Today's Follow-ups</div>
+                        <div class="metric-value">1</div>
+                        <div class="metric-label">New RLE Cases</div>
                     </div>
                     <div class="metric">
                         <div class="metric-value">0</div>
-                        <div class="metric-label">Resolved This Week</div>
+                        <div class="metric-label">Assigned Tickets</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">3</div>
+                        <div class="metric-value">1</div>
+                        <div class="metric-label">Weekly Resolves</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">4</div>
                         <div class="metric-label">Monthly Resolves</div>
-                    </div>
-                </div>
-                <div class="asap-details" style="max-height: 250px; overflow-y: auto;">
-                    <h4>🚨 ASAP Cases (12): Immediate Action Required</h4>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/504066" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 504066</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
-                    </div>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/487804" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 487804</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
-                    </div>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/453048" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 453048</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
-                    </div>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/453955" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 453955</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
-                    </div>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/548491" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 548491</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
-                    </div>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/530458" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 530458</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
-                    </div>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/512045" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 512045</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
-                    </div>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/566983" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 566983</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-12</span>
-                    </div>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/600506" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 600506</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
-                    </div>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/504459" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 504459</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
-                    </div>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/511787" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 511787</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
-                    </div>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/591775" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 591775</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- James Gutcher -->
-            <div class="specialist-card">
-                <div class="specialist-header">
-                    <div class="specialist-name">James Gutcher</div>
-                    <div class="asap-badge">6 ASAP</div>
-                </div>
-                <div class="specialist-metrics">
-                    <div class="metric">
-                        <div class="metric-value">44</div>
-                        <div class="metric-label">Active Escalations</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">7</div>
-                        <div class="metric-label">Today's Follow-ups</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">2</div>
-                        <div class="metric-label">Resolved This Week</div>
                     </div>
                     <div class="metric">
                         <div class="metric-value">11</div>
-                        <div class="metric-label">Monthly Resolves</div>
+                        <div class="metric-label">Follow-ups</div>
                     </div>
                 </div>
                 <div class="asap-details" style="max-height: 200px; overflow-y: auto;">
-                    <h4>🚨 ASAP Cases (6): Past Due Follow-ups</h4>
+                    <h4>🚨 ASAP Cases (4): Past Due Follow-ups</h4>
                     <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/219954" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 219954</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
-                    </div>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/610108" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 610108</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                        <a href="https://portal.freedomforever.com/projects/226595" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 226595</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-14</span>
                     </div>
                     <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/341839" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 341839</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                        <a href="https://portal.freedomforever.com/projects/566399" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 566399</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-14</span>
                     </div>
                     <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/287845" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 287845</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                        <a href="https://portal.freedomforever.com/projects/425371" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 425371</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-14</span>
                     </div>
                     <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/550977" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 550977</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
-                    </div>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/567711" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 567711</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Lala Wheeler -->
-            <div class="specialist-card">
-                <div class="specialist-header">
-                    <div class="specialist-name">Lala Wheeler</div>
-                    <div class="asap-badge">2 ASAP</div>
-                </div>
-                <div class="specialist-metrics">
-                    <div class="metric">
-                        <div class="metric-value">54</div>
-                        <div class="metric-label">Active Escalations</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">8</div>
-                        <div class="metric-label">Today's Follow-ups</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">Resolved This Week</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">5</div>
-                        <div class="metric-label">Monthly Resolves</div>
-                    </div>
-                </div>
-                <div class="asap-details">
-                    <h4>🚨 ASAP Cases (2): Past Due Follow-ups</h4>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/266827" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 266827</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
-                    </div>
-                    <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/354483" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 354483</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                        <a href="https://portal.freedomforever.com/projects/518645" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 518645</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-14</span>
                     </div>
                 </div>
             </div>
@@ -688,64 +567,125 @@
                 </div>
                 <div class="specialist-metrics">
                     <div class="metric">
-                        <div class="metric-value">47</div>
-                        <div class="metric-label">Active Escalations</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">5</div>
-                        <div class="metric-label">Today's Follow-ups</div>
+                        <div class="metric-value">46</div>
+                        <div class="metric-label">Active Cases</div>
                     </div>
                     <div class="metric">
                         <div class="metric-value">0</div>
-                        <div class="metric-label">Resolved This Week</div>
+                        <div class="metric-label">New RLE Cases</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">Assigned Tickets</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">Weekly Resolves</div>
                     </div>
                     <div class="metric">
                         <div class="metric-value">4</div>
                         <div class="metric-label">Monthly Resolves</div>
                     </div>
+                    <div class="metric">
+                        <div class="metric-value">2</div>
+                        <div class="metric-label">Follow-ups</div>
+                    </div>
                 </div>
                 <div class="asap-details">
                     <h4>🚨 ASAP Cases (2): Past Due Follow-ups</h4>
                     <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/503018" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 503018</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                        <a href="https://portal.freedomforever.com/projects/424712" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 424712</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-14</span>
                     </div>
                     <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/554241" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 554241</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                        <a href="https://portal.freedomforever.com/projects/420054" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 420054</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-14</span>
                     </div>
                 </div>
             </div>
             
-            <!-- Jennifer Burns -->
+            <!-- Lala Wheeler -->
             <div class="specialist-card">
                 <div class="specialist-header">
-                    <div class="specialist-name">Jennifer Burns</div>
+                    <div class="specialist-name">Lala Wheeler</div>
+                    <div class="asap-badge">2 ASAP</div>
+                </div>
+                <div class="specialist-metrics">
+                    <div class="metric">
+                        <div class="metric-value">55</div>
+                        <div class="metric-label">Active Cases</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">2</div>
+                        <div class="metric-label">New RLE Cases</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">1</div>
+                        <div class="metric-label">Assigned Tickets</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">1</div>
+                        <div class="metric-label">Weekly Resolves</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">6</div>
+                        <div class="metric-label">Monthly Resolves</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">7</div>
+                        <div class="metric-label">Follow-ups</div>
+                    </div>
+                </div>
+                <div class="asap-details">
+                    <h4>🚨 ASAP Cases (2): Past Due Follow-ups</h4>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/380235" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 380235</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-14</span>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/590320" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 590320</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-14</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Janeth Moyal -->
+            <div class="specialist-card">
+                <div class="specialist-header">
+                    <div class="specialist-name">Janeth Moyal</div>
                     <div class="asap-badge">1 ASAP</div>
                 </div>
                 <div class="specialist-metrics">
                     <div class="metric">
-                        <div class="metric-value">32</div>
-                        <div class="metric-label">Active Escalations</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">6</div>
-                        <div class="metric-label">Today's Follow-ups</div>
+                        <div class="metric-value">45</div>
+                        <div class="metric-label">Active Cases</div>
                     </div>
                     <div class="metric">
                         <div class="metric-value">0</div>
-                        <div class="metric-label">Resolved This Week</div>
+                        <div class="metric-label">New RLE Cases</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">3</div>
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">Assigned Tickets</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">8</div>
+                        <div class="metric-label">Weekly Resolves</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">11</div>
                         <div class="metric-label">Monthly Resolves</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">9</div>
+                        <div class="metric-label">Follow-ups</div>
                     </div>
                 </div>
                 <div class="asap-details">
                     <h4>🚨 ASAP Cases (1): Past Due Follow-up</h4>
                     <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/441840" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 441840</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-13</span>
+                        <a href="https://portal.freedomforever.com/projects/273878" target="_blank" style="color: #74b9ff; text-decoration: none; font-weight: 600;">Project 273878</a><br>
+                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-14</span>
                     </div>
                 </div>
             </div>
@@ -758,20 +698,28 @@
                 </div>
                 <div class="specialist-metrics">
                     <div class="metric">
-                        <div class="metric-value">26</div>
-                        <div class="metric-label">Active Escalations</div>
+                        <div class="metric-value">28</div>
+                        <div class="metric-label">Active Cases</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">New RLE Cases</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">Assigned Tickets</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">4</div>
+                        <div class="metric-label">Weekly Resolves</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">13</div>
+                        <div class="metric-label">Monthly Resolves</div>
                     </div>
                     <div class="metric">
                         <div class="metric-value">5</div>
-                        <div class="metric-label">Today's Follow-ups</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">3</div>
-                        <div class="metric-label">Resolved This Week</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">12</div>
-                        <div class="metric-label">Monthly Resolves</div>
+                        <div class="metric-label">Follow-ups</div>
                     </div>
                 </div>
             </div>
@@ -783,20 +731,28 @@
                 </div>
                 <div class="specialist-metrics">
                     <div class="metric">
-                        <div class="metric-value">46</div>
-                        <div class="metric-label">Active Escalations</div>
+                        <div class="metric-value">47</div>
+                        <div class="metric-label">Active Cases</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">9</div>
-                        <div class="metric-label">Today's Follow-ups</div>
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">New RLE Cases</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">3</div>
-                        <div class="metric-label">Resolved This Week</div>
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">Assigned Tickets</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">11</div>
+                        <div class="metric-value">4</div>
+                        <div class="metric-label">Weekly Resolves</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">12</div>
                         <div class="metric-label">Monthly Resolves</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">6</div>
+                        <div class="metric-label">Follow-ups</div>
                     </div>
                 </div>
             </div>
@@ -808,45 +764,94 @@
                 </div>
                 <div class="specialist-metrics">
                     <div class="metric">
-                        <div class="metric-value">50</div>
-                        <div class="metric-label">Active Escalations</div>
+                        <div class="metric-value">49</div>
+                        <div class="metric-label">Active Cases</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">9</div>
-                        <div class="metric-label">Today's Follow-ups</div>
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">New RLE Cases</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">3</div>
-                        <div class="metric-label">Resolved This Week</div>
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">Assigned Tickets</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">10</div>
+                        <div class="metric-value">4</div>
+                        <div class="metric-label">Weekly Resolves</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">11</div>
                         <div class="metric-label">Monthly Resolves</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">2</div>
+                        <div class="metric-label">Follow-ups</div>
                     </div>
                 </div>
             </div>
             
             <div class="specialist-card">
                 <div class="specialist-header">
-                    <div class="specialist-name">Janeth Moyal</div>
+                    <div class="specialist-name">James Gutcher</div>
                     <div class="asap-badge zero">0 ASAP</div>
                 </div>
                 <div class="specialist-metrics">
                     <div class="metric">
-                        <div class="metric-value">50</div>
-                        <div class="metric-label">Active Escalations</div>
+                        <div class="metric-value">44</div>
+                        <div class="metric-label">Active Cases</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">13</div>
-                        <div class="metric-label">Today's Follow-ups</div>
+                        <div class="metric-value">8</div>
+                        <div class="metric-label">New RLE Cases</div>
                     </div>
                     <div class="metric">
                         <div class="metric-value">3</div>
-                        <div class="metric-label">Resolved This Week</div>
+                        <div class="metric-label">Assigned Tickets</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">6</div>
+                        <div class="metric-value">2</div>
+                        <div class="metric-label">Weekly Resolves</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">11</div>
                         <div class="metric-label">Monthly Resolves</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">Follow-ups</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="specialist-card">
+                <div class="specialist-header">
+                    <div class="specialist-name">Jennifer Burns</div>
+                    <div class="asap-badge zero">0 ASAP</div>
+                </div>
+                <div class="specialist-metrics">
+                    <div class="metric">
+                        <div class="metric-value">32</div>
+                        <div class="metric-label">Active Cases</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">New RLE Cases</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">Assigned Tickets</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">2</div>
+                        <div class="metric-label">Weekly Resolves</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">5</div>
+                        <div class="metric-label">Monthly Resolves</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">Follow-ups</div>
                     </div>
                 </div>
             </div>
@@ -859,19 +864,27 @@
                 <div class="specialist-metrics">
                     <div class="metric">
                         <div class="metric-value">12</div>
-                        <div class="metric-label">Active Escalations</div>
+                        <div class="metric-label">Active Cases</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">2</div>
-                        <div class="metric-label">Today's Follow-ups</div>
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">New RLE Cases</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">Assigned Tickets</div>
                     </div>
                     <div class="metric">
                         <div class="metric-value">1</div>
-                        <div class="metric-label">Resolved This Week</div>
+                        <div class="metric-label">Weekly Resolves</div>
                     </div>
                     <div class="metric">
                         <div class="metric-value">8</div>
                         <div class="metric-label">Monthly Resolves</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">2</div>
+                        <div class="metric-label">Follow-ups</div>
                     </div>
                 </div>
             </div>
