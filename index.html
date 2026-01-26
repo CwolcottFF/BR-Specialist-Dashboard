@@ -3,844 +3,858 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freedom Forever Business Resolutions Dashboard</title>
+    <title>🏢 Freedom Forever Business Resolutions Dashboard</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #2c3e50 0%, #4a6741 100%);
-            min-height: 100vh;
-            color: white;
-            padding: 20px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .dashboard-container {
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+        
+        .container {
             max-width: 1400px;
             margin: 0 auto;
         }
         
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 3rem;
         }
         
         .header h1 {
-            font-size: 2.2em;
-            margin-bottom: 8px;
-            font-weight: 300;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
         }
         
-        .header .subtitle {
-            font-size: 1.1em;
-            opacity: 0.8;
+        .header .date-info {
+            font-size: 1.125rem;
+            color: #64748b;
+            font-weight: 500;
         }
         
-        .main-grid {
+        .stats-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
         
-        .section-title {
-            color: #ff6b35;
-            font-size: 1.4em;
-            font-weight: 600;
-            margin-bottom: 20px;
+        .stats-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
         }
         
-        .team-overview {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid rgba(255,255,255,0.1);
+        .stats-section h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #374151;
         }
         
-        .overview-main {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        
-        .total-cases {
-            font-size: 3.5em;
-            font-weight: bold;
-            color: #3498db;
-            margin-right: 20px;
-        }
-        
-        .total-label {
-            font-size: 1.1em;
-            opacity: 0.8;
-        }
-        
-        .overview-stats {
+        .stats-items {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
         
-        .stat-box {
-            background: rgba(255,255,255,0.08);
-            padding: 15px;
-            border-radius: 10px;
+        .stat-item {
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
         }
         
-        .stat-number {
-            font-size: 2.2em;
-            font-weight: bold;
-            margin-bottom: 5px;
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #059669;
+            margin-bottom: 0.5rem;
         }
         
-        .stat-number.danger { color: #e74c3c; }
-        .stat-number.warning { color: #f39c12; }
-        .stat-number.success { color: #27ae60; }
+        .stat-value.alert {
+            color: #dc2626;
+        }
+        
+        .stat-value.warning {
+            color: #d97706;
+        }
         
         .stat-label {
-            font-size: 0.9em;
-            opacity: 0.8;
-        }
-        
-        .quick-stats {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .quick-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px;
-        }
-        
-        .quick-box {
-            background: rgba(255,255,255,0.08);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .quick-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-        
-        .quick-number.primary { color: #3498db; }
-        .quick-number.success { color: #27ae60; }
-        .quick-number.info { color: #17a2b8; }
-        .quick-number.secondary { color: #6c757d; }
-        .quick-number.warning { color: #e74c3c; }
-        
-        .quick-label {
-            font-size: 0.95em;
-            opacity: 0.8;
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
         }
         
         .priorities-section {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
         }
         
-        .priorities-content {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 30px;
+        .priorities-section h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #374151;
         }
         
-        .priorities-left {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .status-indicator {
-            display: flex;
-            align-items: center;
-            padding: 12px 0;
-            font-size: 1.05em;
-        }
-        
-        .status-icon {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-        
-        .status-icon.success { background: #27ae60; }
-        .status-icon.warning { background: #f39c12; }
-        .status-icon.info { background: #3498db; }
-        
-        .priority-highlight {
-            background: rgba(39, 174, 96, 0.2);
-            color: #2ecc71;
-            padding: 8px 15px;
-            border-radius: 8px;
+        .priority-header {
+            font-size: 1.125rem;
             font-weight: 600;
-            margin-bottom: 15px;
-            display: inline-block;
+            color: #059669;
+            margin-bottom: 1rem;
         }
         
-        .quick-links-box {
-            background: rgba(255,255,255,0.08);
-            padding: 20px;
-            border-radius: 10px;
-            min-width: 200px;
-            border: 1px solid rgba(255,255,255,0.1);
+        .priority-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
         }
         
-        .links-number {
-            font-size: 2.5em;
+        .priority-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+        
+        .priority-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #059669;
             font-weight: bold;
-            color: #3498db;
-            text-align: center;
-            margin-bottom: 8px;
         }
         
-        .links-label {
-            text-align: center;
-            font-size: 0.95em;
-            opacity: 0.8;
-            margin-bottom: 15px;
+        .quick-access {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 1rem;
         }
         
-        .links-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+        .quick-access h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #374151;
+        }
+        
+        .quick-access-stat {
+            text-align: center;
+            margin-bottom: 0.75rem;
+        }
+        
+        .quick-access-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #059669;
+        }
+        
+        .quick-access-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
         }
         
         .quick-link {
-            color: #74b9ff;
+            padding: 0.5rem 0.75rem;
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
             text-decoration: none;
-            font-size: 0.9em;
-            padding: 5px 8px;
-            border-radius: 5px;
-            transition: background 0.3s ease;
+            color: #374151;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.2s ease;
+            display: block;
         }
         
         .quick-link:hover {
-            background: rgba(255,255,255,0.1);
-            text-decoration: underline;
+            background: #f9fafb;
+            border-color: #059669;
+            color: #059669;
         }
         
         .performance-section {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
         }
         
-        .performance-grid {
+        .performance-section h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #374151;
+        }
+        
+        .performance-stats {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
         
-        .performance-box {
-            background: rgba(255,255,255,0.08);
-            padding: 20px;
-            border-radius: 10px;
+        .performance-stat {
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 8px;
         }
         
-        .performance-icon {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-        
-        .performance-title {
-            font-size: 1em;
-            opacity: 0.8;
-            margin-bottom: 8px;
-        }
-        
-        .performance-leader {
-            font-size: 1.3em;
+        .performance-label {
+            font-size: 0.875rem;
+            color: #059669;
             font-weight: 600;
-            color: #2ecc71;
+            margin-bottom: 0.5rem;
+        }
+        
+        .performance-value {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #065f46;
         }
         
         .specialists-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
+            gap: 1.5rem;
         }
         
         .specialist-card {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
+            background: white;
             border-radius: 12px;
-            padding: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
         }
         
         .specialist-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-1px);
         }
         
-        .specialist-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+        .specialist-card.has-asap {
+            border-color: #dc2626;
+            box-shadow: 0 0 0 1px #dc2626, 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
         .specialist-name {
-            font-size: 1.2em;
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        
+        .specialist-asap {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .asap-count {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #dc2626;
+            margin-bottom: 0.25rem;
+        }
+        
+        .asap-label {
+            font-size: 0.875rem;
+            color: #dc2626;
             font-weight: 600;
         }
         
-        .asap-badge {
-            background: #e74c3c;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.85em;
-            font-weight: bold;
-        }
-        
-        .asap-badge.zero { background: #27ae60; }
-        
-        .specialist-metrics {
+        .specialist-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 15px;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
         
-        .metric {
+        .specialist-stat {
             text-align: center;
-            padding: 8px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 6px;
         }
         
-        .metric-value {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #3498db;
+        .specialist-stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 0.25rem;
         }
         
-        .metric-label {
-            font-size: 0.8em;
-            opacity: 0.7;
-            margin-top: 3px;
+        .specialist-stat-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            font-weight: 500;
         }
         
         .asap-details {
-            background: rgba(231, 76, 60, 0.1);
-            border: 1px solid rgba(231, 76, 60, 0.3);
-            padding: 10px;
+            background: #fef2f2;
             border-radius: 6px;
+            padding: 1rem;
+            margin-top: 1rem;
         }
         
         .asap-details h4 {
-            color: #e74c3c;
-            margin-bottom: 8px;
-            font-size: 0.9em;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #dc2626;
+            margin-bottom: 0.75rem;
         }
         
         .asap-case {
-            background: rgba(255,255,255,0.1);
-            padding: 8px 10px;
-            margin: 6px 0;
+            background: white;
+            border: 1px solid #fecaca;
             border-radius: 4px;
-            font-size: 0.85em;
-            border-left: 3px solid #e74c3c;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
         }
         
-        .asap-case a {
-            color: #74b9ff !important;
+        .asap-case:last-child {
+            margin-bottom: 0;
+        }
+        
+        .case-link {
+            color: #dc2626;
             text-decoration: none;
             font-weight: 600;
-            display: inline-block;
-            padding: 2px 0;
-            transition: all 0.3s ease;
+            font-size: 0.875rem;
         }
         
-        .asap-case a:hover {
-            color: #0984e3 !important;
+        .case-link:hover {
             text-decoration: underline;
-            transform: translateX(3px);
+        }
+        
+        .case-details {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
         }
         
         @media (max-width: 768px) {
-            .main-grid { grid-template-columns: 1fr; }
-            .overview-stats { grid-template-columns: 1fr; }
-            .quick-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-            .performance-grid { grid-template-columns: 1fr; }
-            .priorities-content { grid-template-columns: 1fr; }
-            .specialists-grid { grid-template-columns: 1fr; }
+            .stats-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .performance-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .specialist-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .priorities-section > div:first-child {
+                flex-direction: column !important;
+            }
+            
+            .quick-access {
+                margin-left: 0 !important;
+                margin-top: 1rem;
+                min-width: auto !important;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="dashboard-container">
+    <div class="container">
         <div class="header">
             <h1>🏢 Freedom Forever Business Resolutions Dashboard</h1>
-            <p class="subtitle">Monday, January 20, 2026 • Business Week: Jan 19-25, 2026 • MLK Day</p>
+            <div class="date-info">Monday, January 27, 2026 • Business Week: Jan 27 - Feb 2, 2026</div>
         </div>
         
-        <div class="main-grid">
-            <!-- Team Overview Section -->
-            <div class="team-overview">
-                <h2 class="section-title">Team Overview</h2>
-                <div class="overview-main">
-                    <div class="total-cases">399</div>
-                    <div class="total-label">Total Active Cases</div>
-                </div>
-                <div class="overview-stats">
-                    <div class="stat-box">
-                        <div class="stat-number success">1</div>
+        <div class="stats-grid">
+            <div class="stats-section">
+                <h2>Team Overview</h2>
+                <div class="stats-items">
+                    <div class="stat-item">
+                        <div class="stat-value">401</div>
+                        <div class="stat-label">Total Active Cases</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value alert">10</div>
                         <div class="stat-label">ASAP Cases</div>
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-number warning">86</div>
-                        <div class="stat-label">Today's Follow-ups</div>
+                    <div class="stat-item">
+                        <div class="stat-value warning">29</div>
+                        <div class="stat-label">Past Due Follow-ups</div>
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-number success">4</div>
+                    <div class="stat-item">
+                        <div class="stat-value">35</div>
                         <div class="stat-label">This Week Resolves</div>
                     </div>
                 </div>
             </div>
             
-            <!-- Quick Stats Section -->
-            <div class="quick-stats">
-                <h2 class="section-title">Quick Stats</h2>
-                <div class="quick-grid">
-                    <div class="quick-box">
-                        <div class="quick-number secondary">0</div>
-                        <div class="quick-label">New This Week</div>
+            <div class="stats-section">
+                <h2>Quick Stats</h2>
+                <div class="stats-items">
+                    <div class="stat-item">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">New This Week</div>
                     </div>
-                    <div class="quick-box">
-                        <div class="quick-number primary">61</div>
-                        <div class="quick-label">New Last Week</div>
+                    <div class="stat-item">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Resolved This Week</div>
                     </div>
-                    <div class="quick-box">
-                        <div class="quick-number success">47</div>
-                        <div class="quick-label">Last Week Resolves</div>
+                    <div class="stat-item">
+                        <div class="stat-value">33</div>
+                        <div class="stat-label">New Last Week</div>
                     </div>
-                    <div class="quick-box">
-                        <div class="quick-number secondary">1</div>
-                        <div class="quick-label">Regulatory Dismissals</div>
-                    </div>
-                    <div class="quick-box">
-                        <div class="quick-number warning">12</div>
-                        <div class="quick-label">Last Week Regulatory</div>
+                    <div class="stat-item">
+                        <div class="stat-value">34</div>
+                        <div class="stat-label">Last Week Resolves</div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Today's Priorities Section -->
         <div class="priorities-section">
-            <h2 class="section-title">Today's Priorities</h2>
-            <div class="priorities-content">
-                <div class="priorities-left">
-                    <div class="priority-highlight">🎉 Excellent Performance - MLK Day</div>
-                    <div class="status-indicator">
-                        <div class="status-icon success"></div>
-                        <span>Outstanding: Only 1 ASAP case (excellent management!)</span>
-                    </div>
-                    <div class="status-indicator">
-                        <div class="status-icon success"></div>
-                        <span>Strong finish: 47 resolves last week vs 61 new cases</span>
-                    </div>
-                    <div class="status-indicator">
-                        <div class="status-icon warning"></div>
-                        <span>Busy ahead: 86 follow-ups due today</span>
-                    </div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                <div style="flex: 1;">
+                    <h2 style="margin-bottom: 1rem;">Today's Priorities</h2>
+                    <div class="priority-header">🎉 Major Improvement - ASAP Cases Reduced</div>
+                    <ul class="priority-list">
+                        <li><strong>Great news:</strong> ASAP cases down to 10 (James Gutcher removed from report)</li>
+                        <li><strong>Focus areas:</strong> Chase Albers (5), Lala Wheeler (3), Stephanie Gold (2)</li>
+                        <li><strong>New week:</strong> 0 new cases, 0 resolves so far today</li>
+                        <li><strong>Good finish:</strong> Last week ended strong (34 resolves vs 33 new cases)</li>
+                    </ul>
                 </div>
-                <div class="quick-links-box">
-                    <div class="links-number">6</div>
-                    <div class="links-label">Quick Access</div>
-                    <div class="links-list">
-                        <a href="https://portal.freedomforever.com/projects-dashboard" target="_blank" class="quick-link">LIGHTSPEED Portal</a>
-                        <a href="https://sunrun.my.site.com/partner/PartnerPortalLogin?startURL=%2Fpartner%2FFSdispatchesSearch" target="_blank" class="quick-link">Sunrun FSD</a>
-                        <a href="https://omnidian.my.site.com/OmnidianFieldServicePartnerPortal/s/" target="_blank" class="quick-link">Omnidian WO</a>
-                        <a href="https://goodleap.my.site.com/GoodleapOM/s/login/?ec=302&startURL=%2FGoodleapOM%2Fs%2F" target="_blank" class="quick-link">GoodLeap Portal</a>
-                        <a href="https://podio.com/freedomforever/escalations-workspace/apps/escalations" target="_blank" class="quick-link">Podio Escalations</a>
-                        <a href="https://freedomsolarco.sharepoint.com/sites/EscalationsTemplates/_layouts/15/Doc.aspx?sourcedoc={334346cf-930a-45f3-98e6-1d341c0f7acf}&action=edit&wd=target%28Legal%20Updates.one%7Cb444d4bb-9a10-41de-a389-e3fb18f36a16%2FSettlements%20101%7C1a970cb6-5ff2-4e23-9f9a-5feccf6272b2%2F%29&wdorigin=NavigationUrl" target="_blank" class="quick-link">Department Updates</a>
+                
+                <div class="quick-access" style="min-width: 180px; margin-left: 2rem;">
+                    <div class="quick-access-stat">
+                        <div class="quick-access-value">6</div>
+                        <div class="quick-access-label">Quick Access</div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.375rem; margin-top: 0.75rem;">
+                        <a href="https://portal.freedomforever.com/projects-dashboard" class="quick-link" target="_blank" style="padding: 0.375rem 0.75rem; font-size: 0.8rem;">LIGHTSPEED Portal</a>
+                        <a href="https://sunrun.my.site.com/partner/PartnerPortalLogin?startURL=%2Fpartner%2FFSdispatchesSearch" class="quick-link" target="_blank" style="padding: 0.375rem 0.75rem; font-size: 0.8rem;">Sunrun FSD</a>
+                        <a href="https://omnidian.my.site.com/OmnidianFieldServicePartnerPortal/s/" class="quick-link" target="_blank" style="padding: 0.375rem 0.75rem; font-size: 0.8rem;">Omnidian WO</a>
+                        <a href="https://goodleap.my.site.com/GoodleapOM/s/login/?ec=302&startURL=%2FGoodleapOM%2Fs%2F" class="quick-link" target="_blank" style="padding: 0.375rem 0.75rem; font-size: 0.8rem;">GoodLeap Portal</a>
+                        <a href="https://podio.com/freedomforever/escalations-workspace/apps/escalations" class="quick-link" target="_blank" style="padding: 0.375rem 0.75rem; font-size: 0.8rem;">Podio Escalations</a>
+                        <a href="https://freedomsolarco.sharepoint.com/sites/EscalationsTemplates/_layouts/15/Doc.aspx?sourcedoc={334346cf-930a-45f3-98e6-1d341c0f7acf}&action=edit&wd=target%28Legal%20Updates.one%7Cb444d4bb-9a10-41de-a389-e3fb18f36a16%2FSettlements%20101%7C1a970cb6-5ff2-4e23-9f9a-5feccf6272b2%2F%29&wdorigin=NavigationUrl" class="quick-link" target="_blank" style="padding: 0.375rem 0.75rem; font-size: 0.8rem;">Department Updates</a>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Performance Leaders Section -->
         <div class="performance-section">
-            <h2 class="section-title">Performance Leaders</h2>
-            <div class="performance-grid">
-                <div class="performance-box">
-                    <div class="performance-icon">🏆</div>
-                    <div class="performance-title">January Champions (TIE):</div>
-                    <div class="performance-leader">James & Janeth - 15 resolves</div>
+            <h2>Performance Leaders</h2>
+            <div class="performance-stats">
+                <div class="performance-stat">
+                    <div class="performance-label">🏆 Monthly Champion:</div>
+                    <div class="performance-value">Janeth Moyal - 32 resolves</div>
                 </div>
-                <div class="performance-box">
-                    <div class="performance-icon">⚡</div>
-                    <div class="performance-title">Last Week's Leaders:</div>
-                    <div class="performance-leader">Janeth Moyal - 12 resolves</div>
+                <div class="performance-stat">
+                    <div class="performance-label">⚡ Last Week's Leader:</div>
+                    <div class="performance-value">Janeth Moyal - 8 resolves</div>
                 </div>
             </div>
         </div>
         
-        <!-- Specialists Grid -->
         <div class="specialists-grid">
-            <!-- Jaylin Boland - Only ASAP Case -->
+
             <div class="specialist-card">
-                <div class="specialist-header">
-                    <div class="specialist-name">Jaylin Boland</div>
-                    <div class="asap-badge">1 ASAP</div>
+                <div class="specialist-name">Kriscely Aldama</div>
+                <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 0.75rem; margin-bottom: 1rem; text-align: center;">
+                    <div style="font-size: 1.5rem; font-weight: 800; color: #059669; margin-bottom: 0.25rem;">0 ASAP</div>
+                    <div style="font-size: 0.875rem; color: #059669; font-weight: 600;">SLA VIOLATIONS WAIVED</div>
                 </div>
-                <div class="specialist-metrics">
-                    <div class="metric">
-                        <div class="metric-value">50</div>
-                        <div class="metric-label">Active Cases</div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">51</div>
+                        <div class="specialist-stat-label">Active Cases</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">New RLE Cases</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">New RLE Cases</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">Assigned Tickets</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">This Week Resolves</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">This Week Resolves</div>
+                </div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">7</div>
+                        <div class="specialist-stat-label">Monthly Resolves</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">4</div>
-                        <div class="metric-label">Monthly Resolves</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Assigned Tickets</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">14</div>
-                        <div class="metric-label">Follow-ups</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Past Due</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Janeth Moyal - Top Performer -->
+            <div class="specialist-card">
+                <div class="specialist-name">Janeth Moyal</div>
+                <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 0.75rem; margin-bottom: 1rem; text-align: center;">
+                    <div style="font-size: 1.5rem; font-weight: 800; color: #059669; margin-bottom: 0.25rem;">0 ASAP</div>
+                    <div style="font-size: 0.875rem; color: #059669; font-weight: 600;">🏆 TOP PERFORMER</div>
+                </div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">39</div>
+                        <div class="specialist-stat-label">Active Cases</div>
+                    </div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">New RLE Cases</div>
+                    </div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">This Week Resolves</div>
+                    </div>
+                </div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">32</div>
+                        <div class="specialist-stat-label">Monthly Resolves</div>
+                    </div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Assigned Tickets</div>
+                    </div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Follow-ups</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chase Albers -->
+            <div class="specialist-card has-asap">
+                <div class="specialist-name">Chase Albers</div>
+                <div class="specialist-asap">
+                    <div class="asap-count">5 ASAP</div>
+                    <div class="asap-label">NEEDS ATTENTION</div>
+                </div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">45</div>
+                        <div class="specialist-stat-label">Active Cases</div>
+                    </div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">New RLE Cases</div>
+                    </div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">This Week Resolves</div>
+                    </div>
+                </div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">19</div>
+                        <div class="specialist-stat-label">Monthly Resolves</div>
+                    </div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Assigned Tickets</div>
+                    </div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">4</div>
+                        <div class="specialist-stat-label">Past Due</div>
                     </div>
                 </div>
                 <div class="asap-details">
-                    <h4>🚨 ASAP Cases (1): Past Due Follow-up</h4>
+                    <h4>🚨 ASAP Cases (5):</h4>
                     <div class="asap-case">
-                        <a href="https://portal.freedomforever.com/projects/491924" target="_blank">Project 491924</a><br>
-                        <span style="color: #e74c3c; font-size: 0.85em;">Past Due: Due 2026-01-19</span>
+                        <a href="https://portal.freedomforever.com/projects/296618" class="case-link" target="_blank">Project 296618</a>
+                        <div class="case-details">SLA Violation (10+ days since update)</div>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/337294" class="case-link" target="_blank">Project 337294</a>
+                        <div class="case-details">Past Due (Due: 2026-01-23)</div>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/384501" class="case-link" target="_blank">Project 384501</a>
+                        <div class="case-details">Past Due (Due: 2026-01-23)</div>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/504429" class="case-link" target="_blank">Project 504429</a>
+                        <div class="case-details">Past Due (Due: 2026-01-23)</div>
+                    </div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/513154" class="case-link" target="_blank">Project 513154</a>
+                        <div class="case-details">Past Due (Due: 2026-01-22)</div>
                     </div>
                 </div>
             </div>
             
-            <!-- Top Performers with 0 ASAP -->
-            <div class="specialist-card">
-                <div class="specialist-header">
-                    <div class="specialist-name">James Gutcher</div>
-                    <div class="asap-badge zero">0 ASAP</div>
+            <!-- Stephanie Gold -->
+            <div class="specialist-card has-asap">
+                <div class="specialist-name">Stephanie Gold</div>
+                <div class="specialist-asap">
+                    <div class="asap-count">2 ASAP</div>
+                    <div class="asap-label">MIXED THRESHOLDS</div>
                 </div>
-                <div class="specialist-metrics">
-                    <div class="metric">
-                        <div class="metric-value">51</div>
-                        <div class="metric-label">Active Cases</div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">47</div>
+                        <div class="specialist-stat-label">Active Cases</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">New RLE Cases</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">New RLE Cases</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">5</div>
-                        <div class="metric-label">Assigned Tickets</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">2</div>
-                        <div class="metric-label">This Week Resolves</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">15</div>
-                        <div class="metric-label">Monthly Resolves</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">16</div>
-                        <div class="metric-label">Follow-ups</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">This Week Resolves</div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="specialist-card">
-                <div class="specialist-header">
-                    <div class="specialist-name">Janeth Moyal</div>
-                    <div class="asap-badge zero">0 ASAP</div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">5</div>
+                        <div class="specialist-stat-label">Last Week Resolves</div>
+                    </div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Assigned Tickets</div>
+                    </div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Past Due</div>
+                    </div>
                 </div>
-                <div class="specialist-metrics">
-                    <div class="metric">
-                        <div class="metric-value">43</div>
-                        <div class="metric-label">Active Cases</div>
+                <div class="asap-details">
+                    <h4>🚨 ASAP Cases (2):</h4>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/448546" class="case-link" target="_blank">Project 448546</a>
+                        <div class="case-details">SLA Violation (10+ days since update)</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">New RLE Cases</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">Assigned Tickets</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">This Week Resolves</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">15</div>
-                        <div class="metric-label">Monthly Resolves</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">10</div>
-                        <div class="metric-label">Follow-ups</div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/495319" class="case-link" target="_blank">Project 495319</a>
+                        <div class="case-details">SLA Violation (10+ days since update)</div>
                     </div>
                 </div>
             </div>
             
-            <div class="specialist-card">
-                <div class="specialist-header">
-                    <div class="specialist-name">Stephanie Gold</div>
-                    <div class="asap-badge zero">0 ASAP</div>
+            <!-- Lala Wheeler -->
+            <div class="specialist-card has-asap">
+                <div class="specialist-name">Lala Wheeler</div>
+                <div class="specialist-asap">
+                    <div class="asap-count">3 ASAP</div>
+                    <div class="asap-label">SLA VIOLATIONS</div>
                 </div>
-                <div class="specialist-metrics">
-                    <div class="metric">
-                        <div class="metric-value">47</div>
-                        <div class="metric-label">Active Cases</div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">46</div>
+                        <div class="specialist-stat-label">Active Cases</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">New RLE Cases</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">New RLE Cases</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">Assigned Tickets</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">This Week Resolves</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">14</div>
-                        <div class="metric-label">Monthly Resolves</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">7</div>
-                        <div class="metric-label">Follow-ups</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">This Week Resolves</div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="specialist-card">
-                <div class="specialist-header">
-                    <div class="specialist-name">Connor McNeill</div>
-                    <div class="asap-badge zero">0 ASAP</div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">21</div>
+                        <div class="specialist-stat-label">Monthly Resolves</div>
+                    </div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Assigned Tickets</div>
+                    </div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Past Due</div>
+                    </div>
                 </div>
-                <div class="specialist-metrics">
-                    <div class="metric">
-                        <div class="metric-value">27</div>
-                        <div class="metric-label">Active Cases</div>
+                <div class="asap-details">
+                    <h4>🚨 ASAP Cases (3):</h4>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/386813" class="case-link" target="_blank">Project 386813</a>
+                        <div class="case-details">SLA Violation (10+ days since update)</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">New RLE Cases</div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/515704" class="case-link" target="_blank">Project 515704</a>
+                        <div class="case-details">SLA Violation (10+ days since update)</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">Assigned Tickets</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">This Week Resolves</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">14</div>
-                        <div class="metric-label">Monthly Resolves</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">12</div>
-                        <div class="metric-label">Follow-ups</div>
+                    <div class="asap-case">
+                        <a href="https://portal.freedomforever.com/projects/555126" class="case-link" target="_blank">Project 555126</a>
+                        <div class="case-details">SLA Violation (10+ days since update)</div>
                     </div>
                 </div>
             </div>
             
+            <!-- Jaylin Boland -->
             <div class="specialist-card">
-                <div class="specialist-header">
-                    <div class="specialist-name">Lala Wheeler</div>
-                    <div class="asap-badge zero">0 ASAP</div>
+                <div class="specialist-name">Jaylin Boland</div>
+                <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 0.75rem; margin-bottom: 1rem; text-align: center;">
+                    <div style="font-size: 1.5rem; font-weight: 800; color: #059669; margin-bottom: 0.25rem;">0 ASAP</div>
+                    <div style="font-size: 0.875rem; color: #059669; font-weight: 600;">CLEAN SLATE</div>
                 </div>
-                <div class="specialist-metrics">
-                    <div class="metric">
-                        <div class="metric-value">48</div>
-                        <div class="metric-label">Active Cases</div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">52</div>
+                        <div class="specialist-stat-label">Active Cases</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">3</div>
-                        <div class="metric-label">New RLE Cases</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">New RLE Cases</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">1</div>
-                        <div class="metric-label">Assigned Tickets</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">4</div>
+                        <div class="specialist-stat-label">This Week Resolves</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">This Week Resolves</div>
+                </div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">11</div>
+                        <div class="specialist-stat-label">Monthly Resolves</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">13</div>
-                        <div class="metric-label">Monthly Resolves</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Assigned Tickets</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">3</div>
-                        <div class="metric-label">Follow-ups</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Follow-ups</div>
                     </div>
                 </div>
             </div>
             
+            <!-- Connor McNeill -->
             <div class="specialist-card">
-                <div class="specialist-header">
-                    <div class="specialist-name">Chase Albers</div>
-                    <div class="asap-badge zero">0 ASAP</div>
+                <div class="specialist-name">Connor McNeill</div>
+                <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 0.75rem; margin-bottom: 1rem; text-align: center;">
+                    <div style="font-size: 1.5rem; font-weight: 800; color: #059669; margin-bottom: 0.25rem;">0 ASAP</div>
+                    <div style="font-size: 0.875rem; color: #059669; font-weight: 600;">CLEAN SLATE</div>
                 </div>
-                <div class="specialist-metrics">
-                    <div class="metric">
-                        <div class="metric-value">46</div>
-                        <div class="metric-label">Active Cases</div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">26</div>
+                        <div class="specialist-stat-label">Active Cases</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">New RLE Cases</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">New RLE Cases</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">3</div>
-                        <div class="metric-label">Assigned Tickets</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">2</div>
+                        <div class="specialist-stat-label">This Week Resolves</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">This Week Resolves</div>
+                </div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">16</div>
+                        <div class="specialist-stat-label">Monthly Resolves</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">13</div>
-                        <div class="metric-label">Monthly Resolves</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Assigned Tickets</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">10</div>
-                        <div class="metric-label">Follow-ups</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Follow-ups</div>
                     </div>
                 </div>
             </div>
             
+            <!-- Thomas Walters -->
             <div class="specialist-card">
-                <div class="specialist-header">
-                    <div class="specialist-name">Thomas Walters</div>
-                    <div class="asap-badge zero">0 ASAP</div>
+                <div class="specialist-name">Thomas Walters</div>
+                <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 0.75rem; margin-bottom: 1rem; text-align: center;">
+                    <div style="font-size: 1.5rem; font-weight: 800; color: #059669; margin-bottom: 0.25rem;">0 ASAP</div>
+                    <div style="font-size: 0.875rem; color: #059669; font-weight: 600;">CLEAN SLATE</div>
                 </div>
-                <div class="specialist-metrics">
-                    <div class="metric">
-                        <div class="metric-value">11</div>
-                        <div class="metric-label">Active Cases</div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">9</div>
+                        <div class="specialist-stat-label">Active Cases</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">New RLE Cases</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">New RLE Cases</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">Assigned Tickets</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">3</div>
+                        <div class="specialist-stat-label">This Week Resolves</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">This Week Resolves</div>
+                </div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">14</div>
+                        <div class="specialist-stat-label">Monthly Resolves</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">9</div>
-                        <div class="metric-label">Monthly Resolves</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Assigned Tickets</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">1</div>
-                        <div class="metric-label">Follow-ups</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Follow-ups</div>
                     </div>
                 </div>
             </div>
             
+            <!-- Jennifer Burns - SLA Violations Waived This Week -->
             <div class="specialist-card">
-                <div class="specialist-header">
-                    <div class="specialist-name">Jennifer Burns</div>
-                    <div class="asap-badge zero">0 ASAP</div>
+                <div class="specialist-name">Jennifer Burns</div>
+                <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 0.75rem; margin-bottom: 1rem; text-align: center;">
+                    <div style="font-size: 1.5rem; font-weight: 800; color: #059669; margin-bottom: 0.25rem;">0 ASAP</div>
+                    <div style="font-size: 0.875rem; color: #059669; font-weight: 600;">SLA VIOLATIONS WAIVED</div>
                 </div>
-                <div class="specialist-metrics">
-                    <div class="metric">
-                        <div class="metric-value">30</div>
-                        <div class="metric-label">Active Cases</div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">36</div>
+                        <div class="specialist-stat-label">Active Cases</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">New RLE Cases</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">New RLE Cases</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">1</div>
-                        <div class="metric-label">Assigned Tickets</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">2</div>
-                        <div class="metric-label">This Week Resolves</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">8</div>
-                        <div class="metric-label">Monthly Resolves</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">2</div>
-                        <div class="metric-label">Follow-ups</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">2</div>
+                        <div class="specialist-stat-label">This Week Resolves</div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="specialist-card">
-                <div class="specialist-header">
-                    <div class="specialist-name">Kriscely Aldama</div>
-                    <div class="asap-badge zero">0 ASAP</div>
-                </div>
-                <div class="specialist-metrics">
-                    <div class="metric">
-                        <div class="metric-value">46</div>
-                        <div class="metric-label">Active Cases</div>
+                <div class="specialist-stats">
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">8</div>
+                        <div class="specialist-stat-label">Monthly Resolves</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">New RLE Cases</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Assigned Tickets</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">Assigned Tickets</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">This Week Resolves</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">4</div>
-                        <div class="metric-label">Monthly Resolves</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">11</div>
-                        <div class="metric-label">Follow-ups</div>
+                    <div class="specialist-stat">
+                        <div class="specialist-stat-value">0</div>
+                        <div class="specialist-stat-label">Past Due</div>
                     </div>
                 </div>
             </div>
