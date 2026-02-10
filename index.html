@@ -72,6 +72,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            margin-bottom: 20px;
         }
         .qa-btn {
             padding: 10px 20px;
@@ -94,6 +95,22 @@
         .qa-btn.goodleap { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
         .qa-btn.podio { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
         .qa-btn.sharepoint { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+        .tips-in-qa {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e2e8f0;
+        }
+        #rotatingTipHeader {
+            color: #2d3748;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        #rotatingTip {
+            color: #4a5568;
+            line-height: 1.5;
+            font-size: 0.85em;
+        }
         .specialists-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -190,27 +207,61 @@
             font-size: 0.85em;
             font-weight: bold;
         }
-        .tips-section {
+        .asap-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .asap-item {
+            padding: 8px;
+            margin-bottom: 6px;
             background: white;
-            border-radius: 12px;
-            padding: 25px;
-            margin-top: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            border-radius: 6px;
+            border-left: 3px solid #ef4444;
         }
-        .tips-section:hover {
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        .asap-item a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
-        #rotatingTipHeader {
-            color: #2d3748;
-            font-size: 1.1em;
-            margin: 0;
+        .asap-item:hover {
+            background: #fee2e2;
+        }
+        .asap-customer {
             font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 3px;
         }
-        #rotatingTip {
-            color: #4a5568;
-            line-height: 1.6;
-            font-size: 0.95em;
+        .asap-details {
+            font-size: 0.85em;
+            color: #64748b;
+        }
+        .pending-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .pending-item {
+            padding: 8px;
+            margin-bottom: 6px;
+            background: #f0f9ff;
+            border-radius: 6px;
+            border-left: 3px solid #3b82f6;
+        }
+        .pending-item a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .pending-item:hover {
+            background: #dbeafe;
+        }
+        .pending-customer {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 3px;
+        }
+        .pending-details {
+            font-size: 0.85em;
+            color: #64748b;
         }
         @media (max-width: 1024px) {
             .team-overview { grid-template-columns: repeat(2, 1fr); }
@@ -274,20 +325,106 @@
                     <div class="metric-value">2</div>
                     <div class="metric-subtitle">Completed this business week</div>
                 </div>
-                <!-- BBB METRIC - NEW! -->
                 <div class="metric-card">
                     <h3>Cases with Open BBB</h3>
                     <div class="metric-value">4</div>
                     <div class="metric-subtitle">BBB complaint cases</div>
                 </div>
+                <!-- Pending Leadership with clickable links -->
                 <div class="metric-card" style="grid-column: 1 / -1;">
                     <h3>Pending Leadership</h3>
                     <div class="metric-value">14</div>
                     <div class="metric-subtitle">Awaiting leadership action</div>
+                    <div class="pending-list" style="margin-top: 15px;">
+                        <div class="pending-item">
+                            <a href="https://portal.freedomforever.com/projects/467363" target="_blank">
+                                <div class="pending-customer">Teresa Costa</div>
+                                <div class="pending-details">Project 467363 • Kriscely Aldama • Pending Resolution Approval</div>
+                            </a>
+                        </div>
+                        <div class="pending-item">
+                            <a href="https://portal.freedomforever.com/projects/498169" target="_blank">
+                                <div class="pending-customer">Jamie Alvarado</div>
+                                <div class="pending-details">Project 498169 • Kriscely Aldama • Pending Resolution Approval</div>
+                            </a>
+                        </div>
+                        <div class="pending-item">
+                            <a href="https://portal.freedomforever.com/projects/355509" target="_blank">
+                                <div class="pending-customer">Dwight Maxwell</div>
+                                <div class="pending-details">Project 355509 • Jennifer Burns • Resolved</div>
+                            </a>
+                        </div>
+                        <div class="pending-item">
+                            <a href="https://portal.freedomforever.com/projects/407643" target="_blank">
+                                <div class="pending-customer">John White - 77 John St</div>
+                                <div class="pending-details">Project 407643 • Jennifer Burns • Resolved</div>
+                            </a>
+                        </div>
+                        <div class="pending-item">
+                            <a href="https://portal.freedomforever.com/projects/354988" target="_blank">
+                                <div class="pending-customer">Jamie Lloyd</div>
+                                <div class="pending-details">Project 354988 • Jennifer Burns • Resolved</div>
+                            </a>
+                        </div>
+                        <div class="pending-item">
+                            <a href="https://portal.freedomforever.com/projects/453302" target="_blank">
+                                <div class="pending-customer">Tanaya Johnson</div>
+                                <div class="pending-details">Project 453302 • Jennifer Burns • Resolved</div>
+                            </a>
+                        </div>
+                        <div class="pending-item">
+                            <a href="https://portal.freedomforever.com/projects/364332" target="_blank">
+                                <div class="pending-customer">Mary Davis - 201 McDonald Dr</div>
+                                <div class="pending-details">Project 364332 • Jennifer Burns • Resolution in Progress</div>
+                            </a>
+                        </div>
+                        <div class="pending-item">
+                            <a href="https://portal.freedomforever.com/projects/396261" target="_blank">
+                                <div class="pending-customer">Patricia Muns</div>
+                                <div class="pending-details">Project 396261 • Jennifer Burns • Resolved</div>
+                            </a>
+                        </div>
+                        <div class="pending-item">
+                            <a href="https://portal.freedomforever.com/projects/372682" target="_blank">
+                                <div class="pending-customer">Marion  Williams</div>
+                                <div class="pending-details">Project 372682 • Jennifer Burns • Resolved</div>
+                            </a>
+                        </div>
+                        <div class="pending-item">
+                            <a href="https://portal.freedomforever.com/projects/347065" target="_blank">
+                                <div class="pending-customer">Ed Wilt</div>
+                                <div class="pending-details">Project 347065 • Jennifer Burns • Resolved</div>
+                            </a>
+                        </div>
+                        <div class="pending-item">
+                            <a href="https://portal.freedomforever.com/projects/323845" target="_blank">
+                                <div class="pending-customer">Ronald Argoe</div>
+                                <div class="pending-details">Project 323845 • Jennifer Burns • Resolved</div>
+                            </a>
+                        </div>
+                        <div class="pending-item">
+                            <a href="https://portal.freedomforever.com/projects/439561" target="_blank">
+                                <div class="pending-customer">Cornell  Flowers</div>
+                                <div class="pending-details">Project 439561 • Jennifer Burns • Resolved</div>
+                            </a>
+                        </div>
+                        <div class="pending-item">
+                            <a href="https://portal.freedomforever.com/projects/499083" target="_blank">
+                                <div class="pending-customer">Justin Moline</div>
+                                <div class="pending-details">Project 499083 • Kriscely Aldama • Pending Additional Information</div>
+                            </a>
+                        </div>
+                        <div class="pending-item">
+                            <a href="https://portal.freedomforever.com/projects/503018" target="_blank">
+                                <div class="pending-customer">Robert Forneris</div>
+                                <div class="pending-details">Project 503018 • Kriscely Aldama • Pending Additional Information</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Right: Quick Access -->
+            <!-- Right: Quick Access with Rotating Tips -->
             <div class="quick-access" style="margin-bottom: 0;">
                 <div class="quick-access-label">⚡ Quick Access</div>
                 <div class="quick-access-buttons">
@@ -298,6 +435,15 @@
                     <a href="https://goodleap.my.site.com/GoodleapOM/s/login/?ec=302&startURL=%2FGoodleapOM%2Fs%2F" target="_blank" class="qa-btn goodleap">GoodLeap Portal</a>
                     <a href="https://podio.com/freedomforever/escalations-workspace/apps/escalations" target="_blank" class="qa-btn podio">Podio Escalations</a>
                     <a href="https://freedomsolarco.sharepoint.com/sites/EscalationsTemplates/_layouts/15/Doc.aspx?sourcedoc={334346cf-930a-45f3-98e6-1d341c0f7acf}&action=edit" target="_blank" class="qa-btn sharepoint">SharePoint BR SOPs</a>
+                </div>
+                
+                <!-- Rotating Tips inside Quick Access -->
+                <div class="tips-in-qa">
+                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <span style="font-size: 1.2em; margin-right: 8px;">💡</span>
+                        <h4 id="rotatingTipHeader">January Meeting Recap</h4>
+                    </div>
+                    <div id="rotatingTip">Loading tips...</div>
                 </div>
             </div>
         </div>
@@ -337,7 +483,14 @@
                         <div class="asap-title">⚠️ ASAP Cases</div>
                         <div class="asap-count">1</div>
                     </div>
-                    <div style="font-size: 0.85em; color: #991b1b;">Past due follow-ups or missing dates</div>
+                    <div class="asap-list">
+                        <div class="asap-item">
+                            <a href="https://portal.freedomforever.com/projects/365296" target="_blank">
+                                <div class="asap-customer">Kristin Escolastico</div>
+                                <div class="asap-details">Project 365296 • Past due or missing follow-up</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -356,9 +509,22 @@
                 <div class="asap-section">
                     <div class="asap-header">
                         <div class="asap-title">⚠️ ASAP Cases</div>
-                        <div class="asap-count">5</div>
+                        <div class="asap-count">2</div>
                     </div>
-                    <div style="font-size: 0.85em; color: #991b1b;">Past due follow-ups or missing dates</div>
+                    <div class="asap-list">
+                        <div class="asap-item">
+                            <a href="https://portal.freedomforever.com/projects/205449" target="_blank">
+                                <div class="asap-customer"> Kyle Gallagher</div>
+                                <div class="asap-details">Project 205449 • Past due or missing follow-up</div>
+                            </a>
+                        </div>
+                        <div class="asap-item">
+                            <a href="https://portal.freedomforever.com/projects/335459" target="_blank">
+                                <div class="asap-customer">Padre Scott</div>
+                                <div class="asap-details">Project 335459 • Past due or missing follow-up</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -415,9 +581,22 @@
                 <div class="asap-section">
                     <div class="asap-header">
                         <div class="asap-title">⚠️ ASAP Cases</div>
-                        <div class="asap-count">4</div>
+                        <div class="asap-count">2</div>
                     </div>
-                    <div style="font-size: 0.85em; color: #991b1b;">Past due follow-ups or missing dates</div>
+                    <div class="asap-list">
+                        <div class="asap-item">
+                            <a href="https://portal.freedomforever.com/projects/205833" target="_blank">
+                                <div class="asap-customer"> Ellen Dollar</div>
+                                <div class="asap-details">Project 205833 • Past due or missing follow-up</div>
+                            </a>
+                        </div>
+                        <div class="asap-item">
+                            <a href="https://portal.freedomforever.com/projects/538338" target="_blank">
+                                <div class="asap-customer">Susan Liefer</div>
+                                <div class="asap-details">Project 538338 • Past due or missing follow-up</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -440,7 +619,14 @@
                         <div class="asap-title">⚠️ ASAP Cases</div>
                         <div class="asap-count">1</div>
                     </div>
-                    <div style="font-size: 0.85em; color: #991b1b;">Past due follow-ups or missing dates</div>
+                    <div class="asap-list">
+                        <div class="asap-item">
+                            <a href="https://portal.freedomforever.com/projects/416396" target="_blank">
+                                <div class="asap-customer">Darryl Munson</div>
+                                <div class="asap-details">Project 416396 • Past due or missing follow-up</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -493,17 +679,6 @@
                     <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">5</div></div>
                     <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">1</div></div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Rotating Tips Section -->
-        <div class="tips-section">
-            <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                <span style="font-size: 1.5em; margin-right: 10px;">💡</span>
-                <h3 id="rotatingTipHeader">January Meeting Recap</h3>
-            </div>
-            <div id="rotatingTip">
-                Loading tips...
             </div>
         </div>
     </div>
