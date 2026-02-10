@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Resolutions Dashboard - Feb 9, 2026</title>
+    <title>Business Resolutions Dashboard - Feb 10, 2026</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -25,53 +25,6 @@
             font-size: 2.5em;
             margin-bottom: 10px;
         }
-        .week-notice {
-            background: #fff7ed;
-            padding: 12px 20px;
-            border-radius: 8px;
-            border-left: 4px solid #f97316;
-            margin-top: 15px;
-            color: #ea580c;
-            font-weight: 600;
-        }
-        .quick-access {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .quick-access-label {
-            font-size: 1em;
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 15px;
-        }
-        .quick-access-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .qa-btn {
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9em;
-            color: white;
-            transition: all 0.2s;
-            text-align: center;
-        }
-        .qa-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .qa-btn.lightspeed { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .qa-btn.sunrun { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-        .qa-btn.omnidian { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-        .qa-btn.goodleap { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-        .qa-btn.podio { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
-        .qa-btn.sharepoint { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
         .team-overview {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -103,6 +56,44 @@
             font-size: 0.85em;
             color: #718096;
         }
+        .quick-access {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .quick-access-label {
+            font-size: 1em;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        .quick-access-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .qa-btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            color: white;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .qa-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .qa-btn.lightspeed { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .qa-btn.settlement { background: linear-gradient(135deg, #fb923c 0%, #f97316 100%); }
+        .qa-btn.sunrun { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .qa-btn.omnidian { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .qa-btn.goodleap { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .qa-btn.podio { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .qa-btn.sharepoint { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
         .specialists-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -199,33 +190,27 @@
             font-size: 0.85em;
             font-weight: bold;
         }
-        .asap-list {
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        .asap-item {
-            padding: 8px;
-            margin-bottom: 6px;
+        .tips-section {
             background: white;
-            border-radius: 6px;
-            border-left: 3px solid #ef4444;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
-        .asap-item a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
+        .tips-section:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
-        .asap-item:hover {
-            background: #fee2e2;
-        }
-        .asap-customer {
+        #rotatingTipHeader {
+            color: #2d3748;
+            font-size: 1.1em;
+            margin: 0;
             font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 3px;
         }
-        .asap-details {
-            font-size: 0.85em;
-            color: #64748b;
+        #rotatingTip {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 0.95em;
         }
         @media (max-width: 1024px) {
             .team-overview { grid-template-columns: repeat(2, 1fr); }
@@ -243,29 +228,29 @@
     <div class="container">
         <div class="header">
             <h1>📊 Business Resolutions Dashboard</h1>
-            <div class="week-notice">🔄 NEW BUSINESS WEEK: February 8-14, 2026 (Weekly metrics reset)</div>
+            <p style="color: #718096; margin-top: 10px;">February 10, 2026 - Business Week: Feb 8-14</p>
         </div>
 
         <!-- Quick Stats Section -->
         <div class="team-overview">
             <div class="metric-card">
                 <h3>Total Active Cases</h3>
-                <div class="metric-value">387</div>
+                <div class="metric-value">381</div>
                 <div class="metric-subtitle">Across all specialists</div>
             </div>
             <div class="metric-card">
                 <h3>New This Week</h3>
-                <div class="metric-value">0</div>
+                <div class="metric-value">1</div>
                 <div class="metric-subtitle">Created this business week</div>
             </div>
             <div class="metric-card">
                 <h3>Resolved This Week</h3>
-                <div class="metric-value">4</div>
+                <div class="metric-value">11</div>
                 <div class="metric-subtitle">Completed this business week</div>
             </div>
             <div class="metric-card">
                 <h3>Pending Follow-ups</h3>
-                <div class="metric-value">64</div>
+                <div class="metric-value">94</div>
                 <div class="metric-subtitle">Due today + past due</div>
             </div>
         </div>
@@ -276,7 +261,7 @@
             <div class="team-overview" style="margin-bottom: 0;">
                 <div class="metric-card">
                     <h3>Total Open Complaints</h3>
-                    <div class="metric-value">128</div>
+                    <div class="metric-value">127</div>
                     <div class="metric-subtitle">Regulatory Board Claims</div>
                 </div>
                 <div class="metric-card">
@@ -286,54 +271,19 @@
                 </div>
                 <div class="metric-card">
                     <h3>Dismissed This Week</h3>
-                    <div class="metric-value">1</div>
+                    <div class="metric-value">2</div>
                     <div class="metric-subtitle">Completed this business week</div>
                 </div>
-                <!-- Pending Leadership -->
+                <!-- BBB METRIC - NEW! -->
+                <div class="metric-card">
+                    <h3>Cases with Open BBB</h3>
+                    <div class="metric-value">4</div>
+                    <div class="metric-subtitle">BBB complaint cases</div>
+                </div>
                 <div class="metric-card" style="grid-column: 1 / -1;">
                     <h3>Pending Leadership</h3>
-                    <div class="metric-value">6</div>
+                    <div class="metric-value">14</div>
                     <div class="metric-subtitle">Awaiting leadership action</div>
-                    <div class="asap-section" style="margin-top: 15px;">
-                        <div class="asap-list" style="max-height: 250px;">
-                            <div class="asap-item">
-                                <a href="https://portal.freedomforever.com/projects/439561" target="_blank">
-                                    <div class="asap-customer">Cornell Flowers</div>
-                                    <div class="asap-details">Project 439561 • Jennifer Burns • Resolved</div>
-                                </a>
-                            </div>
-                            <div class="asap-item">
-                                <a href="https://portal.freedomforever.com/projects/582057" target="_blank">
-                                    <div class="asap-customer">Abegale Lacuesta</div>
-                                    <div class="asap-details">Project 582057 • Jennifer Burns • Pending Additional Information</div>
-                                </a>
-                            </div>
-                            <div class="asap-item">
-                                <a href="https://portal.freedomforever.com/projects/467363" target="_blank">
-                                    <div class="asap-customer">Teresa Costa</div>
-                                    <div class="asap-details">Project 467363 • Kriscely Aldama • Pending Resolution Approval</div>
-                                </a>
-                            </div>
-                            <div class="asap-item">
-                                <a href="https://portal.freedomforever.com/projects/498169" target="_blank">
-                                    <div class="asap-customer">Jamie Alvarado</div>
-                                    <div class="asap-details">Project 498169 • Kriscely Aldama • Pending Resolution Approval</div>
-                                </a>
-                            </div>
-                            <div class="asap-item">
-                                <a href="https://portal.freedomforever.com/projects/499083" target="_blank">
-                                    <div class="asap-customer">Justin Moline</div>
-                                    <div class="asap-details">Project 499083 • Kriscely Aldama • Pending Additional Information</div>
-                                </a>
-                            </div>
-                            <div class="asap-item">
-                                <a href="https://portal.freedomforever.com/projects/503018" target="_blank">
-                                    <div class="asap-customer">Robert Forneris</div>
-                                    <div class="asap-details">Project 503018 • Kriscely Aldama • Pending Additional Information</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -342,6 +292,7 @@
                 <div class="quick-access-label">⚡ Quick Access</div>
                 <div class="quick-access-buttons">
                     <a href="https://portal.freedomforever.com" target="_blank" class="qa-btn lightspeed">LIGHTSPEED Portal</a>
+                    <a href="https://freedomsolarco.sharepoint.com/sites/EscalationsTemplates/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FEscalationsTemplates%2FShared%20Documents%2FSettlement%20Agreements&viewid=007fde09-ff10-49bf-b004-2396414c44c2" target="_blank" class="qa-btn settlement">Settlement Agreements</a>
                     <a href="https://sunrun.my.site.com/partner/PartnerPortalLogin?startURL=%2Fpartner%2FFSdispatchesSearch" target="_blank" class="qa-btn sunrun">Sunrun FSD</a>
                     <a href="https://omnidian.my.site.com/OmnidianFieldServicePartnerPortal/s/" target="_blank" class="qa-btn omnidian">Omnidian WO</a>
                     <a href="https://goodleap.my.site.com/GoodleapOM/s/login/?ec=302&startURL=%2FGoodleapOM%2Fs%2F" target="_blank" class="qa-btn goodleap">GoodLeap Portal</a>
@@ -353,54 +304,64 @@
 
         <!-- Specialists Section -->
         <div class="specialists-grid">
-            <!-- Chase Albers -->
             <div class="specialist-card">
                 <div class="specialist-header">
                     <div class="specialist-name">Chase Albers</div>
                 </div>
                 <div class="metrics-grid">
                     <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">47</div></div>
-                    <div class="metric-box"><div class="metric-box-label">New RLE</div><div class="metric-box-value">0</div></div>
+                    <div class="metric-box"><div class="metric-box-label">RLE</div><div class="metric-box-value">0</div></div>
                     <div class="metric-box"><div class="metric-box-label">Tickets</div><div class="metric-box-value">0</div></div>
                     <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">0</div></div>
                     <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">6</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">6</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">14</div></div>
                 </div>
             </div>
 
-            <!-- Connor McNeill -->
             <div class="specialist-card">
                 <div class="specialist-header">
                     <div class="specialist-name">Connor McNeill</div>
                 </div>
                 <div class="metrics-grid">
-                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">34</div></div>
-                    <div class="metric-box"><div class="metric-box-label">New RLE</div><div class="metric-box-value">0</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">35</div></div>
+                    <div class="metric-box"><div class="metric-box-label">RLE</div><div class="metric-box-value">4</div></div>
                     <div class="metric-box"><div class="metric-box-label">Tickets</div><div class="metric-box-value">0</div></div>
                     <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">0</div></div>
                     <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">2</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">13</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">18</div></div>
                     <div class="metric-box"><div class="metric-box-label">Regulatory</div><div class="metric-box-value">14</div></div>
                     <div class="metric-box"><div class="metric-box-label">Responses Due</div><div class="metric-box-value">0</div></div>
                 </div>
+                <div class="asap-section">
+                    <div class="asap-header">
+                        <div class="asap-title">⚠️ ASAP Cases</div>
+                        <div class="asap-count">1</div>
+                    </div>
+                    <div style="font-size: 0.85em; color: #991b1b;">Past due follow-ups or missing dates</div>
+                </div>
             </div>
 
-            <!-- James Gutcher -->
             <div class="specialist-card">
                 <div class="specialist-header">
                     <div class="specialist-name">James Gutcher</div>
                 </div>
                 <div class="metrics-grid">
-                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">40</div></div>
-                    <div class="metric-box"><div class="metric-box-label">New RLE</div><div class="metric-box-value">0</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">39</div></div>
+                    <div class="metric-box"><div class="metric-box-label">RLE</div><div class="metric-box-value">1</div></div>
                     <div class="metric-box"><div class="metric-box-label">Tickets</div><div class="metric-box-value">0</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">0</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">7</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">9</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">1</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">8</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">11</div></div>
+                </div>
+                <div class="asap-section">
+                    <div class="asap-header">
+                        <div class="asap-title">⚠️ ASAP Cases</div>
+                        <div class="asap-count">5</div>
+                    </div>
+                    <div style="font-size: 0.85em; color: #991b1b;">Past due follow-ups or missing dates</div>
                 </div>
             </div>
 
-            <!-- Janeth Moyal -->
             <div class="specialist-card">
                 <div class="specialist-header">
                     <div class="specialist-name">Janeth Moyal</div>
@@ -409,33 +370,31 @@
                     </div>
                 </div>
                 <div class="metrics-grid">
-                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">38</div></div>
-                    <div class="metric-box"><div class="metric-box-label">New RLE</div><div class="metric-box-value">0</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">37</div></div>
+                    <div class="metric-box"><div class="metric-box-label">RLE</div><div class="metric-box-value">0</div></div>
                     <div class="metric-box"><div class="metric-box-label">Tickets</div><div class="metric-box-value">0</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">0</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">8</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">8</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">1</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">9</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">10</div></div>
                 </div>
             </div>
 
-            <!-- Jaylin Boland -->
             <div class="specialist-card">
                 <div class="specialist-header">
                     <div class="specialist-name">Jaylin Boland</div>
                 </div>
                 <div class="metrics-grid">
-                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">49</div></div>
-                    <div class="metric-box"><div class="metric-box-label">New RLE</div><div class="metric-box-value">0</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">48</div></div>
+                    <div class="metric-box"><div class="metric-box-label">RLE</div><div class="metric-box-value">2</div></div>
                     <div class="metric-box"><div class="metric-box-label">Tickets</div><div class="metric-box-value">0</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">0</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">6</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">11</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Regulatory</div><div class="metric-box-value">40</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Responses Due</div><div class="metric-box-value">6</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">1</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">7</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">8</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Regulatory</div><div class="metric-box-value">39</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Responses Due</div><div class="metric-box-value">5</div></div>
                 </div>
             </div>
 
-            <!-- Jennifer Burns -->
             <div class="specialist-card">
                 <div class="specialist-header">
                     <div class="specialist-name">Jennifer Burns</div>
@@ -444,38 +403,47 @@
                     </div>
                 </div>
                 <div class="metrics-grid">
-                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">41</div></div>
-                    <div class="metric-box"><div class="metric-box-label">New RLE</div><div class="metric-box-value">3</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">40</div></div>
+                    <div class="metric-box"><div class="metric-box-label">RLE</div><div class="metric-box-value">3</div></div>
                     <div class="metric-box"><div class="metric-box-label">Tickets</div><div class="metric-box-value">0</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">1</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">2</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">2</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">3</div></div>
                     <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">9</div></div>
                     <div class="metric-box"><div class="metric-box-label">Regulatory</div><div class="metric-box-value">33</div></div>
                     <div class="metric-box"><div class="metric-box-label">Responses Due</div><div class="metric-box-value">3</div></div>
                 </div>
+                <div class="asap-section">
+                    <div class="asap-header">
+                        <div class="asap-title">⚠️ ASAP Cases</div>
+                        <div class="asap-count">4</div>
+                    </div>
+                    <div style="font-size: 0.85em; color: #991b1b;">Past due follow-ups or missing dates</div>
+                </div>
             </div>
 
-            <!-- Kriscely Aldama -->
             <div class="specialist-card">
                 <div class="specialist-header">
                     <div class="specialist-name">Kriscely Aldama</div>
-                    <div class="badges">
-                        <div class="badge badge-champion">Monthly Champion</div>
-                    </div>
                 </div>
                 <div class="metrics-grid">
                     <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">45</div></div>
-                    <div class="metric-box"><div class="metric-box-label">New RLE</div><div class="metric-box-value">0</div></div>
+                    <div class="metric-box"><div class="metric-box-label">RLE</div><div class="metric-box-value">0</div></div>
                     <div class="metric-box"><div class="metric-box-label">Tickets</div><div class="metric-box-value">0</div></div>
                     <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">0</div></div>
                     <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">8</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">1</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">12</div></div>
                     <div class="metric-box"><div class="metric-box-label">Regulatory</div><div class="metric-box-value">40</div></div>
                     <div class="metric-box"><div class="metric-box-label">Responses Due</div><div class="metric-box-value">1</div></div>
                 </div>
+                <div class="asap-section">
+                    <div class="asap-header">
+                        <div class="asap-title">⚠️ ASAP Cases</div>
+                        <div class="asap-count">1</div>
+                    </div>
+                    <div style="font-size: 0.85em; color: #991b1b;">Past due follow-ups or missing dates</div>
+                </div>
             </div>
 
-            <!-- Lala Wheeler -->
             <div class="specialist-card">
                 <div class="specialist-header">
                     <div class="specialist-name">Lala Wheeler</div>
@@ -484,16 +452,15 @@
                     </div>
                 </div>
                 <div class="metrics-grid">
-                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">44</div></div>
-                    <div class="metric-box"><div class="metric-box-label">New RLE</div><div class="metric-box-value">0</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">43</div></div>
+                    <div class="metric-box"><div class="metric-box-label">RLE</div><div class="metric-box-value">0</div></div>
                     <div class="metric-box"><div class="metric-box-label">Tickets</div><div class="metric-box-value">1</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">1</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">4</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">0</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">2</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">5</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">5</div></div>
                 </div>
             </div>
 
-            <!-- Stephanie Gold -->
             <div class="specialist-card">
                 <div class="specialist-header">
                     <div class="specialist-name">Stephanie Gold</div>
@@ -502,16 +469,15 @@
                     </div>
                 </div>
                 <div class="metrics-grid">
-                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">44</div></div>
-                    <div class="metric-box"><div class="metric-box-label">New RLE</div><div class="metric-box-value">0</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Tickets</div><div class="metric-box-value">0</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">1</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">6</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">4</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">43</div></div>
+                    <div class="metric-box"><div class="metric-box-label">RLE</div><div class="metric-box-value">0</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Tickets</div><div class="metric-box-value">1</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">2</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">7</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">6</div></div>
                 </div>
             </div>
 
-            <!-- Thomas Walters -->
             <div class="specialist-card">
                 <div class="specialist-header">
                     <div class="specialist-name">Thomas Walters</div>
@@ -520,19 +486,30 @@
                     </div>
                 </div>
                 <div class="metrics-grid">
-                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">5</div></div>
-                    <div class="metric-box"><div class="metric-box-label">New RLE</div><div class="metric-box-value">0</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Active Cases</div><div class="metric-box-value">4</div></div>
+                    <div class="metric-box"><div class="metric-box-label">RLE</div><div class="metric-box-value">0</div></div>
                     <div class="metric-box"><div class="metric-box-label">Tickets</div><div class="metric-box-value">0</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">1</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">4</div></div>
-                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">3</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Week Resolves</div><div class="metric-box-value">2</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Month Resolves</div><div class="metric-box-value">5</div></div>
+                    <div class="metric-box"><div class="metric-box-label">Follow-ups</div><div class="metric-box-value">1</div></div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Rotating Tips Section -->
+        <div class="tips-section">
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <span style="font-size: 1.5em; margin-right: 10px;">💡</span>
+                <h3 id="rotatingTipHeader">January Meeting Recap</h3>
+            </div>
+            <div id="rotatingTip">
+                Loading tips...
             </div>
         </div>
     </div>
 
     <script>
-        const tips = [
+        const januaryTips = [
             "💰 Pre-Final Complete Claims: Consider company stance vs business benefit. A $1,200 claim blocking $40,000 in final funding may warrant compensation to obtain Final Complete.",
             "📋 COI Information: First check the AHJ Database. Try locating it yourself before asking leadership. If not found, then reach out to licensing team.",
             "💵 High $ Approvals: Notify leadership team BEFORE bringing projects to Daily Meeting for any approval over $15,000.",
@@ -547,18 +524,44 @@
             "⚠️ ASAP Cases: Require same-day attention. Update follow-up dates immediately after customer contact."
         ];
         
+        const februaryTips = [
+            "🤖 ChatGPT Asset: ChatGPT is a great asset in your review of projects. Use it to enhance your case analysis.",
+            "🏠 Roof Leak Agent: The Roof Leak and Property Damage Agent we are building in ChatGPT is a helpful tool for reviews.",
+            "🚧 Work in Progress: While the agent is still a work in progress, it is useable. Continue providing feedback for improvements.",
+            "📱 Free Version Limits: Free ChatGPT allows agent use but has text and photograph limitations. Consider upgrade if needed.",
+            "⏱️ Service Delays: For concerns with only service delays or RMAs (no other claims), partner with Chris or Thomas to determine if BR needs to stay involved.",
+            "📦 RMA Timeline: RMA delays can be 3-4 months at times. These are manufacturer timelines, not Freedom delays.",
+            "💰 No RMA Compensation: Do NOT offer compensation for RMA downtime. These are manufacturer defects, not Freedom Forever issues.",
+            "🚫 No TPO RMA Billing: Freedom should NOT make payments to TPO partners for RMA process delays.",
+            "⚠️ TPO Compensation Attempts: Some TPO partners want to compensate customers and bill Freedom for RMA downtime. This is NOT allowed.",
+            "📢 Report TPO Billing: If you hear about TPO partners trying to bill Freedom for RMA downtime, notify Leadership immediately."
+        ];
+        
+        let currentMonth = 'january';
         let currentTipIndex = 0;
         
         function rotateTip() {
+            const tips = currentMonth === 'january' ? januaryTips : februaryTips;
+            const header = currentMonth === 'january' ? '💡 January Meeting Recap' : '💡 February Meeting Recap';
+            
+            const headerElement = document.getElementById('rotatingTipHeader');
             const tipElement = document.getElementById('rotatingTip');
-            if (tipElement) {
+            
+            if (headerElement && tipElement) {
+                headerElement.innerHTML = header;
                 tipElement.innerHTML = tips[currentTipIndex];
-                currentTipIndex = (currentTipIndex + 1) % tips.length;
+            }
+            
+            currentTipIndex++;
+            
+            if (currentTipIndex >= tips.length) {
+                currentTipIndex = 0;
+                currentMonth = currentMonth === 'january' ? 'february' : 'january';
             }
         }
         
         rotateTip();
-        setInterval(rotateTip, 10000);
+        setInterval(rotateTip, 20000);
     </script>
 </body>
 </html>
